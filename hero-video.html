@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero FOTO FULLBLEED – Little Kickers Zona Poniente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --lk-red: #E31F26;
+      --lk-yellow: #F6D809;
+      --lk-dark-grey: #757982;
+      --lk-dark-red: #B8322E;
+      --ink: #141414;
+      --charcoal: #222222;
+      --stone: #666666;
+      --line: #E9E9E9;
+      --ivory: #F8F6F1;
+      --white: #FFFFFF;
+      --font-headline: 'Nunito', sans-serif;
+      --font-body: 'Poppins', sans-serif;
+      --radius-btn: 999px;
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background: var(--white);
+      border-bottom: 1.5px solid var(--line);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .nav-container {
+      max-width: 1248px; margin: 0 auto; padding: 0 40px;
+      height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .lk-isotipo {
+      width: 44px; height: 44px; background: var(--lk-red); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .lk-isotipo-text { font-family: var(--font-headline); font-weight: 900; font-size: 17px; color: white; letter-spacing: -0.5px; }
+    .lk-wordmark { display: flex; flex-direction: column; line-height: 1.15; }
+    .lk-wordmark-main { font-family: var(--font-headline); font-weight: 900; font-size: 18px; color: var(--lk-red); }
+    .lk-wordmark-sub { font-family: var(--font-body); font-weight: 500; font-size: 11px; color: var(--lk-dark-grey); letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a { font-family: var(--font-body); font-weight: 500; font-size: 14px; color: var(--charcoal); padding: 8px 14px; border-radius: var(--radius-btn); transition: all var(--transition); }
+    .nav-links a:hover { color: var(--lk-red); background: rgba(227,31,38,0.06); }
+    .nav-cta { background: var(--lk-red) !important; color: white !important; padding: 10px 22px !important; font-weight: 600 !important; border-radius: var(--radius-btn) !important; }
+    .nav-cta:hover { background: var(--lk-dark-red) !important; }
+
+    /* ── HERO FOTO FULL-BLEED ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 72px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Video de fondo full-bleed */
+    .hero-photo-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-photo-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    /* Overlay multicapa para legibilidad */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      /* Gradiente: más oscuro en izquierda (donde va el copy), más transparente en derecha */
+      background:
+        linear-gradient(
+          105deg,
+          rgba(10,0,0,0.88) 0%,
+          rgba(10,0,0,0.80) 40%,
+          rgba(10,0,0,0.55) 65%,
+          rgba(10,0,0,0.30) 100%
+        );
+    }
+    /* Toque rojizo sutil en la parte inferior */
+    .hero-overlay-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 35%;
+      background: linear-gradient(to top, rgba(120,5,5,0.25), transparent);
+      z-index: 1;
+    }
+    /* Viñeta top */
+    .hero-overlay-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 25%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.45), transparent);
+      z-index: 1;
+    }
+
+    /* Contenido del hero */
+    .hero-container {
+      position: relative; z-index: 3;
+      max-width: 1248px; margin: 0 auto; padding: 80px 40px;
+      width: 100%;
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 660px;
+      animation: fadeInUp 0.9s cubic-bezier(0.4,0,0.2,1) both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(36px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(227,31,38,0.20);
+      border: 1px solid rgba(227,31,38,0.40);
+      border-radius: var(--radius-btn);
+      padding: 7px 18px;
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      color: #ff8c8f; letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 7px; height: 7px; background: var(--lk-red);
+      border-radius: 50%; animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.5)} }
+
+    .hero-headline {
+      font-family: var(--font-headline); font-weight: 900;
+      font-size: clamp(52px, 6.5vw, 92px);
+      line-height: 0.97;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+    }
+    .hero-headline em {
+      font-style: normal;
+      color: var(--lk-red);
+    }
+    /* Línea Play not Push con estilo diferente */
+    .headline-pnp {
+      display: block;
+      font-size: 0.36em;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lk-yellow);
+      margin-bottom: 16px;
+      font-family: var(--font-body);
+    }
+
+    .hero-sub {
+      font-family: var(--font-body); font-size: 18px; font-weight: 300;
+      color: rgba(255,255,255,0.72); line-height: 1.75;
+      margin-bottom: 48px; max-width: 540px;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--lk-red); color: white;
+      font-family: var(--font-body); font-weight: 600; font-size: 17px;
+      padding: 19px 36px; border-radius: var(--radius-btn);
+      transition: all var(--transition);
+      box-shadow: 0 4px 24px rgba(227,31,38,0.35);
+    }
+    .btn-primary:hover { background: var(--lk-dark-red); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(227,31,38,.55); }
+    .btn-primary i { font-size: 20px; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.08); color: white;
+      font-family: var(--font-body); font-weight: 500; font-size: 16px;
+      padding: 19px 28px; border-radius: var(--radius-btn);
+      border: 1.5px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(8px);
+      transition: all var(--transition);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.55); }
+
+    /* Trust strip */
+    .hero-trust {
+      display: flex; flex-wrap: wrap; gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .trust-chip {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.60);
+    }
+    .trust-chip i { color: var(--lk-yellow); font-size: 14px; }
+
+    /* Indicador corner */
+    .video-indicator {
+      position: absolute;
+      bottom: 36px; right: 40px;
+      z-index: 4;
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 10px 18px;
+      font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.65);
+    }
+    .video-dot {
+      width: 8px; height: 8px; background: #25D366; border-radius: 50%;
+      animation: pulse-dot 1.5s infinite;
+    }
+
+    /* ── STATS BAR sobre el trust bar ── */
+    .hero-stats-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 4;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 40px;
+    }
+    .stats-inner {
+      max-width: 1248px; margin: 0 auto;
+      display: flex; justify-content: space-around; align-items: center;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--font-headline); font-weight: 900; font-size: 30px;
+      color: var(--white); line-height: 1; display: block;
+    }
+    .stat-num span { color: var(--lk-red); }
+    .stat-label {
+      font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .stat-div { width: 1px; height: 40px; background: rgba(255,255,255,0.10); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--ivory); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 40px;
+    }
+    .trust-bar-inner {
+      max-width: 1248px; margin: 0 auto;
+      display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 32px;
+    }
+    .tb-item { display: flex; align-items: center; gap: 10px; font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--charcoal); }
+    .tb-item i { color: var(--lk-red); font-size: 17px; }
+    .tb-div { width: 1px; height: 24px; background: var(--line); }
+
+    /* ── LABEL ── */
+    .version-label {
+      background: var(--charcoal); color: white;
+      font-family: var(--font-body); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      text-align: center; padding: 14px;
+    }
+
+    /* ── STICKY WA ── */
+    .sticky-wa {
+      position: fixed; bottom: 28px; right: 28px; z-index: 900;
+      display: flex; align-items: center; gap: 10px;
+      background: #25D366; color: white;
+      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      padding: 14px 24px; border-radius: var(--radius-btn);
+      box-shadow: 0 8px 32px rgba(37,211,102,.40);
+      text-decoration: none; transition: all var(--transition);
+    }
+    .sticky-wa:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-container { padding: 48px 24px 100px; min-height: auto; }
+      .hero-headline { font-size: clamp(44px, 10vw, 68px); }
+      .nav-links { display: none; }
+      .nav-container { padding: 0 24px; }
+      .hero-stats-strip { padding: 16px 20px; }
+      .stat-num { font-size: 24px; }
+      .video-indicator { bottom: auto; top: 100px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="version-label" style="background:#E31F26">🎬 HERO — VIDEO HORIZONTAL FULL-BLEED</div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <div class="lk-isotipo"><span class="lk-isotipo-text">LK</span></div>
+        <div class="lk-wordmark">
+          <span class="lk-wordmark-main">Little Kickers</span>
+          <span class="lk-wordmark-sub">Zona Poniente</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#">Programas</a>
+        <a href="#">Sedes</a>
+        <a href="#">Clases</a>
+        <a href="#">FAQ</a>
+        <a href="#" class="nav-cta">Agendar clase muestra</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO VIDEO -->
+  <section class="hero">
+
+    <!-- VIDEO HORIZONTAL FULL-BLEED -->
+    <div class="hero-photo-bg">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        poster="https://www.genspark.ai/api/files/s/NPTTBEC7"
+      >
+        <source src="https://www.genspark.ai/api/files/s/6sIgt8lq" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- OVERLAYS -->
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-bottom"></div>
+    <div class="hero-overlay-top"></div>
+
+    <!-- CONTENIDO -->
+    <div class="hero-container">
+      <div class="hero-content">
+
+        <div class="hero-eyebrow">Little Kickers Zona Poniente</div>
+
+        <h1 class="hero-headline">
+          <span class="headline-pnp">Play not Push</span>
+          Donde el fútbol<br>
+          empieza con<br>
+          <em>confianza.</em>
+        </h1>
+
+        <p class="hero-sub">
+          Clases para niños de <strong>18 meses a 8 años</strong> en Interlomas, Santa Fe, Cuajimalpa, Bosques, Huixquilucan y Chapultepec. Un método internacional diseñado para que aprender sea parte del juego.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="https://wa.me/5215565352797" target="_blank" class="btn-primary">
+            <i class="fab fa-whatsapp"></i>
+            Agendar clase muestra gratis
+          </a>
+          <a href="#" class="btn-ghost">
+            Ver programas y edades
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <span class="trust-chip"><i class="fas fa-check-circle"></i> 18 meses a 8 años</span>
+          <span class="trust-chip"><i class="fas fa-heart"></i> Play not Push</span>
+          <span class="trust-chip"><i class="fas fa-globe"></i> Metodología internacional</span>
+          <span class="trust-chip"><i class="fas fa-map-marker-alt"></i> 3 sedes · 6 zonas</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Stats strip pegada al fondo del hero -->
+    <div class="hero-stats-strip">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-num">+<span>80K</span></span>
+          <span class="stat-label">Niños / semana</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat-item">
+          <span class="stat-num"><span>320</span>+</span>
+          <span class="stat-label">Franquicias globales</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat-item">
+          <span class="stat-num"><span>26</span></span>
+          <span class="stat-label">Países</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat-item">
+          <span class="stat-num"><span>23</span> años</span>
+          <span class="stat-label">De experiencia</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat-item">
+          <span class="stat-num"><span>3</span></span>
+          <span class="stat-label">Sedes Zona Poniente</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicador corner -->
+    <div class="video-indicator">
+      <div class="video-dot"></div>
+      Little Kickers en acción
+    </div>
+
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="tb-item"><i class="fas fa-trophy"></i> Best Children's Franchise 2025</div>
+      <div class="tb-div"></div>
+      <div class="tb-item"><i class="fas fa-child"></i> Aprendizaje a través del juego</div>
+      <div class="tb-div"></div>
+      <div class="tb-item"><i class="fas fa-shield-alt"></i> Entorno sin presión</div>
+      <div class="tb-div"></div>
+      <div class="tb-item"><i class="fas fa-users"></i> Clase muestra <strong>&nbsp;100% gratis</strong></div>
+      <div class="tb-div"></div>
+      <div class="tb-item"><i class="fas fa-map-marker-alt"></i> Zona Poniente CDMX</div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/5215565352797" target="_blank" class="sticky-wa">
+    <i class="fab fa-whatsapp"></i> Agendar clase muestra gratis
+  </a>
+
+</body>
+</html>
