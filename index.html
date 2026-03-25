@@ -119,13 +119,13 @@ h1 .uy::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:10px
 
 /* ═══ BENEFITS ═══ */
 .ben-g{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
-.ben-c{background:var(--off);border-radius:var(--rl);padding:36px 28px;border:1px solid rgba(0,0,0,.03);transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.ben-c{background:var(--off);border-radius:var(--rl);border:1px solid rgba(0,0,0,.03);transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;display:flex;flex-direction:column}
 .ben-c:hover{transform:translateY(-6px);box-shadow:var(--sm)}
 .ben-c::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:0 0 4px 4px;transform:scaleX(0);transition:transform .4s}
 .ben-c:hover::after{transform:scaleX(1)}
 .ben-c:nth-child(1)::after{background:var(--lk-red)}.ben-c:nth-child(2)::after{background:var(--lk-yellow)}.ben-c:nth-child(3)::after{background:var(--lk-blue)}.ben-c:nth-child(4)::after{background:var(--lk-green)}
-.ben-i{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;overflow:hidden}
-.ben-i img{width:100%;height:100%;object-fit:cover}
+.ben-img{width:100%;height:180px;object-fit:cover}
+.ben-body{padding:28px 24px}
 .ben-n{font-family:'Nunito',sans-serif;font-weight:900;font-size:20px;color:var(--dark);margin-bottom:10px}
 .ben-d{font-size:14px;line-height:1.65;color:var(--lk-dg)}
 
@@ -335,10 +335,10 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
     <h2 class="sec-h rv d1">Cada clase construye algo<br>más profundo que un gol.</h2>
     <p class="sec-d rv d2">No es solo fútbol. Es sobre el niño que crece dentro y fuera de la cancha.</p>
     <div class="ben-g">
-      <div class="ben-c rv"><div class="ben-i" style="background:var(--rp)"><img src="images/team-hands.jpg" alt="Equipo" loading="lazy"></div><div class="ben-n">Confianza</div><div class="ben-d">Cada pequeño logro refuerza la autoestima y la seguridad de tu hijo en todos los ámbitos de su vida.</div></div>
-      <div class="ben-c rv d1"><div class="ben-i" style="background:var(--yp)"><img src="images/feet-balls.jpg" alt="Coordinación" loading="lazy"></div><div class="ben-n">Coordinación</div><div class="ben-d">Desarrollan habilidades motoras finas y gruesas, equilibrio y coordinación óculo-pédica desde temprana edad.</div></div>
-      <div class="ben-c rv d2"><div class="ben-i" style="background:var(--bp)"><img src="images/toddler-kick.jpg" alt="Social" loading="lazy"></div><div class="ben-n">Habilidades sociales</div><div class="ben-d">Seguir instrucciones, trabajar en equipo, esperar turno y celebrar juntos: competencias para la vida.</div></div>
-      <div class="ben-c rv d3"><div class="ben-i" style="background:var(--gp)"><img src="images/boy-dribble.jpg" alt="Deporte" loading="lazy"></div><div class="ben-n">Amor por el deporte</div><div class="ben-d">Sin presión ni competencia prematura, desarrollan una relación positiva y duradera con la actividad física.</div></div>
+      <div class="ben-c rv"><img src="images/team-hands.jpg" alt="Niños uniendo manos en equipo" class="ben-img" loading="lazy"><div class="ben-body"><div class="ben-n">Confianza</div><div class="ben-d">Cada pequeño logro refuerza la autoestima y la seguridad de tu hijo en todos los ámbitos de su vida.</div></div></div>
+      <div class="ben-c rv d1"><img src="images/feet-balls.jpg" alt="Pies de niños con balones LK" class="ben-img" loading="lazy"><div class="ben-body"><div class="ben-n">Coordinación</div><div class="ben-d">Desarrollan habilidades motoras finas y gruesas, equilibrio y coordinación óculo-pédica desde temprana edad.</div></div></div>
+      <div class="ben-c rv d2"><img src="images/toddler-kick.jpg" alt="Pequeña pateando balón en clase" class="ben-img" loading="lazy"><div class="ben-body"><div class="ben-n">Habilidades sociales</div><div class="ben-d">Seguir instrucciones, trabajar en equipo, esperar turno y celebrar juntos: competencias para la vida.</div></div></div>
+      <div class="ben-c rv d3"><img src="images/boy-dribble.jpg" alt="Niño driblando con confianza" class="ben-img" loading="lazy"><div class="ben-body"><div class="ben-n">Amor por el deporte</div><div class="ben-d">Sin presión ni competencia prematura, desarrollan una relación positiva y duradera con la actividad física.</div></div></div>
     </div>
   </div>
 </section>
