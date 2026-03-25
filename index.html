@@ -1,0 +1,2643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little Kickers Zona Poniente – Clase Muestra Gratis</title>
+  <meta name="description" content="Clases de fútbol para niños de 18 meses a 8 años en Interlomas, Santa Fe, Cuajimalpa, Bosques, Huixquilucan y Chapultepec. Metodología Play not Push. Agenda tu clase muestra gratis hoy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    /* =============================================
+       TOKENS DE MARCA – LITTLE KICKERS
+       Brand Guidelines 2025
+    ============================================= */
+    :root {
+      --lk-red: #E31F26;
+      --lk-yellow: #F6D809;
+      --lk-dark-grey: #757982;
+      --lk-dark-red: #B8322E;
+      --lk-green: #6CC351;
+      --lk-blue: #00A4EB;
+      --lk-purple: #732472;
+      --ink: #141414;
+      --charcoal: #222222;
+      --stone: #666666;
+      --line: #E9E9E9;
+      --ivory: #F8F6F1;
+      --white: #FFFFFF;
+      --font-headline: 'Nunito', sans-serif;
+      --font-body: 'Poppins', sans-serif;
+      --radius-card: 20px;
+      --radius-btn: 999px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 40px rgba(0,0,0,0.14);
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* =============================================
+       HEADER / NAVBAR – FONDO BLANCO SIEMPRE
+       Brand: logo LK Red + exclusion zone
+    ============================================= */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1.5px solid var(--line);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      transition: box-shadow var(--transition);
+    }
+    .site-header.scrolled {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    .nav-container {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* LOGO – Correcto según Brand Guidelines
+       El logo LK debe siempre aparecer en rojo, blanco o combinación de ambos.
+       Sobre fondo blanco: isotipo en rojo + texto en rojo.
+       Exclusion zone: espacio libre alrededor del logo.
+    */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    /* Isotipo LK – Círculo rojo con letras blancas (versión submark) */
+    .lk-isotipo {
+      width: 44px;
+      height: 44px;
+      background: var(--lk-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .lk-isotipo svg {
+      width: 26px;
+      height: 18px;
+    }
+
+    /* Texto del logo: "Little Kickers" en LK Red + "Zona Poniente" en dark grey */
+    .lk-wordmark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .lk-wordmark-main {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--lk-red);
+      letter-spacing: -0.02em;
+    }
+    .lk-wordmark-sub {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 11px;
+      color: var(--lk-dark-grey);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* NAVEGACIÓN */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--charcoal);
+      padding: 8px 14px;
+      border-radius: var(--radius-btn);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--lk-red);
+      background: rgba(227,31,38,0.06);
+    }
+
+    /* CTA de navegación */
+    .nav-cta {
+      background: var(--lk-red) !important;
+      color: var(--white) !important;
+      padding: 10px 22px !important;
+      border-radius: var(--radius-btn) !important;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition) !important;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: var(--lk-dark-red) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(227,31,38,0.30) !important;
+    }
+
+    /* Hamburger móvil */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border: none;
+      background: transparent;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      padding: 20px 24px 28px;
+      z-index: 999;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--charcoal);
+      padding: 12px 16px;
+      border-radius: 12px;
+      transition: all var(--transition);
+    }
+    .mobile-nav a:hover { background: var(--ivory); color: var(--lk-red); }
+    .mobile-nav .mobile-cta {
+      background: var(--lk-red);
+      color: var(--white) !important;
+      text-align: center;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .mobile-nav .mobile-cta:hover { background: var(--lk-dark-red); }
+
+    /* =============================================
+       HERO SECTION — VIDEO FULL-BLEED
+    ============================================= */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 72px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Video de fondo */
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    /* Overlays multicapa */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        105deg,
+        rgba(10,0,0,0.88) 0%,
+        rgba(10,0,0,0.80) 40%,
+        rgba(10,0,0,0.50) 65%,
+        rgba(10,0,0,0.25) 100%
+      );
+    }
+    .hero-overlay-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 35%;
+      background: linear-gradient(to top, rgba(100,5,5,0.30), transparent);
+      z-index: 1;
+    }
+    .hero-overlay-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 20%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.50), transparent);
+      z-index: 1;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 3;
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 80px 32px;
+      width: 100%;
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(227,31,38,0.15);
+      border: 1px solid rgba(227,31,38,0.30);
+      border-radius: var(--radius-btn);
+      padding: 6px 16px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: #ff6b70;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--lk-red);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.4); }
+    }
+
+    .hero-headline {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .hero-headline .accent-red { color: var(--lk-red); }
+    .hero-headline .accent-yellow { color: var(--lk-yellow); }
+    .hero-headline .headline-pnp {
+      display: block;
+      font-size: 0.36em;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lk-yellow);
+      margin-bottom: 12px;
+      font-family: var(--font-body);
+    }
+
+    .hero-subheadline {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 540px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--lk-red);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 16px;
+      padding: 16px 32px;
+      border-radius: var(--radius-btn);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary:hover {
+      background: var(--lk-dark-red);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(227,31,38,0.40);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 16px;
+      padding: 16px 28px;
+      border-radius: var(--radius-btn);
+      border: 1.5px solid rgba(255,255,255,0.30);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.70);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.60);
+    }
+    .trust-badge i {
+      color: var(--lk-yellow);
+      font-size: 14px;
+    }
+
+    /* Hero content */
+    .hero-copy {
+      max-width: 660px;
+      animation: fadeInUp 0.9s cubic-bezier(0.4,0,0.2,1) both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Stats strip al fondo del hero */
+    .hero-stats-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 4;
+      background: rgba(0,0,0,0.60);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 40px;
+    }
+    .hero-stats-inner {
+      max-width: 1248px; margin: 0 auto;
+      display: flex; justify-content: space-around; align-items: center;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .hero-stat-item { text-align: center; }
+    .hero-stat-num {
+      font-family: var(--font-headline); font-weight: 900; font-size: 28px;
+      color: var(--white); line-height: 1; display: block;
+    }
+    .hero-stat-num span { color: var(--lk-red); }
+    .hero-stat-label {
+      font-family: var(--font-body); font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .hero-stat-div { width: 1px; height: 36px; background: rgba(255,255,255,0.10); }
+
+    /* Video indicator */
+    .video-indicator {
+      position: absolute;
+      bottom: 80px; right: 40px;
+      z-index: 4;
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-family: var(--font-body); font-size: 12px;
+      color: rgba(255,255,255,0.65);
+    }
+    .video-dot {
+      width: 7px; height: 7px; background: #25D366;
+      border-radius: 50%; animation: pulse-dot 1.5s infinite;
+    }
+
+    /* Kept for other sections that use stat-number */
+    .stat-number {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 40px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* =============================================
+       TRUST BAR
+    ============================================= */
+    .trust-bar {
+      background: var(--ivory);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 32px;
+    }
+    .trust-bar-inner {
+      max-width: 1248px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .trust-item i {
+      color: var(--lk-red);
+      font-size: 18px;
+    }
+    .trust-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--line);
+    }
+
+    /* =============================================
+       MÁS QUE FÚTBOL – PILARES
+    ============================================= */
+
+    /* Banner fotográfico sobre los pilares */
+    .pillars-photo-banner {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      height: 380px;
+      margin-bottom: 64px;
+    }
+    .pillars-photo-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .pillars-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(10,0,0,0.72) 0%,
+        rgba(10,0,0,0.45) 50%,
+        rgba(10,0,0,0.15) 100%
+      );
+      display: flex;
+      align-items: center;
+      padding: 48px 56px;
+    }
+    .pillars-photo-copy {
+      max-width: 480px;
+    }
+    .pillars-photo-copy .section-eyebrow {
+      color: var(--lk-yellow);
+      margin-bottom: 12px;
+    }
+    .pillars-photo-copy h2 {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .pillars-photo-copy p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+    }
+    /* Foto secundaria manos en equipo junto a pilares */
+    .pillars-team-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: var(--radius-card);
+      margin-top: 40px;
+      display: block;
+    }
+
+    .section {
+      padding: 96px 32px;
+    }
+    .section-alt { background: var(--ivory); }
+    .section-container { max-width: 1248px; margin: 0 auto; }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--lk-red);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-headline {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: clamp(28px, 3.5vw, 48px);
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .section-subheadline {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--stone);
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .pillar-card {
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--lk-red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .pillar-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .pillar-card:hover::before { transform: scaleX(1); }
+    .pillar-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(227,31,38,0.08);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--lk-red);
+      margin-bottom: 20px;
+    }
+    .pillar-title {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .pillar-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+
+    /* Foto en programa card — las cards usan flex-row, la foto va arriba full-width */
+    .program-card {
+      flex-direction: column !important;
+      padding: 0 !important;
+    }
+    .program-card .program-icon-wrap,
+    .program-card .program-body {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .program-card .program-icon-wrap { padding-top: 28px; }
+    .program-card .program-body { padding-bottom: 32px; }
+    .program-photo {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border-radius: var(--radius-card) var(--radius-card) 0 0;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       PROGRAMAS POR EDAD
+    ============================================= */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .program-card {
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 36px 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::after {
+      content: '';
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      opacity: 0.04;
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .program-card:nth-child(1)::after { background: var(--lk-red); }
+    .program-card:nth-child(2)::after { background: var(--lk-yellow); }
+    .program-card:nth-child(3)::after { background: var(--lk-green); }
+    .program-card:nth-child(4)::after { background: var(--lk-blue); }
+    .program-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .program-card:hover::after { opacity: 0.10; transform: scale(1.3); }
+    
+    .program-icon-wrap {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+    .program-card:nth-child(1) .program-icon-wrap { background: rgba(227,31,38,0.10); }
+    .program-card:nth-child(2) .program-icon-wrap { background: rgba(246,216,9,0.15); }
+    .program-card:nth-child(3) .program-icon-wrap { background: rgba(108,195,81,0.12); }
+    .program-card:nth-child(4) .program-icon-wrap { background: rgba(0,164,235,0.12); }
+
+    .program-body {}
+    .program-age-tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius-btn);
+      margin-bottom: 12px;
+    }
+    .program-card:nth-child(1) .program-age-tag { background: rgba(227,31,38,0.10); color: var(--lk-dark-red); }
+    .program-card:nth-child(2) .program-age-tag { background: rgba(246,216,9,0.20); color: #8a7800; }
+    .program-card:nth-child(3) .program-age-tag { background: rgba(108,195,81,0.15); color: #3a7a24; }
+    .program-card:nth-child(4) .program-age-tag { background: rgba(0,164,235,0.12); color: #007DB3; }
+    .program-name {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 24px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .program-claim {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--stone);
+      margin-bottom: 10px;
+    }
+    .program-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--lk-dark-grey);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .program-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--lk-red);
+      transition: gap var(--transition);
+    }
+    .program-link:hover { gap: 10px; }
+
+    /* Grid de 'Cómo es una clase' */
+    .clase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Foto lateral en 'Cómo es una clase' */
+    .clase-photo-wrap {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .clase-photo-wrap img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      border-radius: 24px;
+    }
+    .clase-photo-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .clase-photo-badge-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--lk-red);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .clase-photo-badge-text strong {
+      display: block;
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 15px;
+      color: var(--ink);
+    }
+    .clase-photo-badge-text span {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--stone);
+    }
+    /* Detalle foto pequeña */
+    .clase-detail-photo {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+      display: block;
+      margin-top: 20px;
+    }
+
+    /* =============================================
+       CÓMO ES UNA CLASE
+    ============================================= */
+    .class-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .class-steps::before {
+      content: '';
+      position: absolute;
+      left: 27px;
+      top: 56px;
+      bottom: 56px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--lk-red), var(--lk-yellow));
+      z-index: 0;
+    }
+    .class-step {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      padding: 28px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      background: var(--lk-red);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 20px;
+      position: relative;
+      z-index: 2;
+      border: 4px solid var(--white);
+      box-shadow: 0 0 0 2px var(--lk-red);
+    }
+    .step-content {}
+    .step-title {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--stone);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       SEDES / LOCALIZACIÓN
+    ============================================= */
+    .locations-intro {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .location-card {
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .location-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--lk-red);
+    }
+    .location-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(227,31,38,0.08);
+      color: var(--lk-dark-red);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: var(--radius-btn);
+      margin-bottom: 16px;
+    }
+    .location-name {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .location-zones {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--stone);
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .zone-tag {
+      background: var(--ivory);
+      border: 1px solid var(--line);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--charcoal);
+    }
+    .location-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--lk-dark-grey);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .btn-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--lk-red);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: var(--radius-btn);
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .btn-location:hover {
+      background: var(--lk-dark-red);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(227,31,38,0.30);
+    }
+    .location-help {
+      background: var(--ivory);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .location-help p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    /* Zone coverage visual */
+    .zones-coverage {
+      background: var(--lk-red);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .zones-coverage p {
+      color: rgba(255,255,255,0.80);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .zone-pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* =============================================
+       TESTIMONIOS
+    ============================================= */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: all var(--transition);
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .testimonial-stars { color: var(--lk-yellow); font-size: 16px; letter-spacing: 2px; }
+    .testimonial-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--charcoal);
+      line-height: 1.7;
+      flex: 1;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .author-avatar.av1 { background: var(--lk-red); }
+    .author-avatar.av2 { background: #3a7a24; }
+    .author-avatar.av3 { background: var(--lk-blue); }
+    .author-name {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .author-detail {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--stone);
+    }
+
+    /* =============================================
+       FAQ ACCORDION
+    ============================================= */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+    .faq-item.open { border-color: var(--lk-red); }
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: left;
+      transition: color var(--transition);
+    }
+    .faq-item.open .faq-question { color: var(--lk-red); }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ivory);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--stone);
+      transition: all var(--transition);
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-icon {
+      background: var(--lk-red);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding var(--transition);
+    }
+    .faq-answer.open { max-height: 400px; }
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+
+    /* Galería de fotos sobre testimonios */
+    .testimonials-photo-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 56px;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .tphoto-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-card);
+    }
+    .tphoto-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .tphoto-item:hover img { transform: scale(1.05); }
+    .tphoto-item:first-child img { height: 200px; object-position: center 10%; }
+
+    /* =============================================
+       CTA FINAL
+    ============================================= */
+    .cta-final {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--lk-red) 0%, var(--lk-dark-red) 100%);
+      padding: 96px 32px;
+    }
+    .cta-final-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .cta-final-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+      opacity: 0.22;
+      mix-blend-mode: luminosity;
+    }
+    .cta-final-container {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-final-eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .cta-final-headline {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .cta-final-sub {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+    .btn-cta-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      color: var(--lk-red);
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 700;
+      padding: 18px 40px;
+      border-radius: var(--radius-btn);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .btn-cta-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
+    .cta-microcopy {
+      margin-top: 16px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.60);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .site-footer {
+      background: var(--ink);
+      padding: 64px 32px 32px;
+    }
+    .footer-container {
+      max-width: 1248px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      margin-bottom: 32px;
+    }
+    .footer-brand {}
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--lk-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-logo-mark svg { width: 22px; height: 14px; }
+    .footer-brand-name {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--white);
+    }
+    .footer-brand-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .footer-col-title {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.40);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(255,255,255,0.60);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-legal {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: rgba(255,255,255,0.30);
+    }
+    .footer-disclaimer {
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      text-align: right;
+    }
+
+    /* =============================================
+       STICKY WHATSAPP CTA
+    ============================================= */
+    .sticky-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: var(--radius-btn);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.40);
+      text-decoration: none;
+      transition: all var(--transition);
+      animation: wa-bounce 3s infinite;
+    }
+    .sticky-wa:hover {
+      background: #1ebe5d;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.55);
+      animation: none;
+    }
+    .sticky-wa i { font-size: 20px; }
+    @keyframes wa-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* =============================================
+       PLAY NOT PUSH SECTION
+    ============================================= */
+    .philosophy-block {
+      background: var(--ink);
+      border-radius: 24px;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 0;
+    }
+    .philosophy-text {}
+    .philosophy-headline {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: clamp(28px, 3vw, 44px);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .philosophy-headline .pnp-badge {
+      color: var(--lk-yellow);
+      font-style: italic;
+    }
+    .philosophy-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .philosophy-stats {
+      display: flex;
+      gap: 32px;
+    }
+    .philo-stat {}
+    .philo-stat-number {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 36px;
+      color: var(--lk-red);
+    }
+    .philo-stat-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.50);
+    }
+    .philosophy-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .philo-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 24px 20px;
+      transition: all var(--transition);
+    }
+    .philo-card:hover { background: rgba(255,255,255,0.08); }
+    .philo-card-icon { font-size: 28px; margin-bottom: 12px; }
+    .philo-card-title {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 15px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .philo-card-text {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .philosophy-block { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-container { padding: 0 20px; height: 64px; }
+      .mobile-nav { top: 64px; }
+
+      /* FOTOS en secciones — mobile */
+      .pillars-photo-banner { height: 280px; margin-bottom: 40px; }
+      .pillars-photo-overlay { padding: 28px 24px; }
+      .pillars-photo-copy h2 { font-size: 22px; }
+      .pillars-team-photo { height: 160px; margin-top: 24px; }
+      .program-photo { height: 140px; }
+      .clase-photo-wrap img { height: 300px; }
+      .clase-detail-photo { height: 120px; }
+      .testimonials-photo-strip { grid-template-columns: 1fr; gap: 10px; }
+      .tphoto-item img { height: 160px; }
+      .cta-final-bg img { opacity: 0.15; }
+
+      /* HERO mobile: layout optimizado para pantallas pequeñas */
+      .hero { min-height: 100svh; }
+      .hero-container {
+        padding: 32px 20px 140px;
+        min-height: auto;
+        align-items: flex-end;
+      }
+      .hero-copy { max-width: 100%; }
+      .hero-eyebrow { font-size: 10px; padding: 5px 12px; margin-bottom: 16px; }
+      .hero-headline { font-size: clamp(32px, 8.5vw, 48px); line-height: 1.0; margin-bottom: 16px; }
+      .hero-headline .headline-pnp { font-size: 0.40em; margin-bottom: 8px; }
+      .hero-subheadline { font-size: 14px; line-height: 1.6; margin-bottom: 28px; }
+      .hero-ctas { flex-direction: column; gap: 10px; margin-bottom: 28px; }
+      .btn-primary { justify-content: center; width: 100%; font-size: 15px; padding: 15px 24px; }
+      .btn-secondary { justify-content: center; width: 100%; font-size: 14px; padding: 13px 24px; }
+      .hero-trust-strip { gap: 10px; }
+      .trust-badge { font-size: 12px; }
+
+      /* Stats strip móvil: 2 filas compactas */
+      .hero-stats-strip {
+        padding: 10px 16px;
+        background: rgba(0,0,0,0.75);
+      }
+      .hero-stats-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px 4px;
+      }
+      .hero-stat-div { display: none; }
+      .hero-stat-item { text-align: center; }
+      .hero-stat-num { font-size: 18px; }
+      .hero-stat-label { font-size: 9px; letter-spacing: 0.03em; }
+      .video-indicator { display: none; }
+
+      /* Overlay más oscuro en móvil para legibilidad */
+      .hero-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(0,0,0,0.60) 0%,
+          rgba(0,0,0,0.50) 40%,
+          rgba(0,0,0,0.70) 100%
+        );
+      }
+
+      .section { padding: 64px 20px; }
+      /* Clase: apila fotos arriba, copy+pasos abajo */
+      .clase-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+      /* Filosofía: foto al ancho completo */
+      .philosophy-visual { grid-template-columns: 1fr !important; }
+      .philosophy-visual > div[style*="grid-column"] { height: 160px; }
+      /* Pilares banner */
+      .pillars-photo-banner { border-radius: 16px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .locations-intro { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .footer-disclaimer { text-align: left; }
+
+      .philosophy-block { padding: 36px 24px; gap: 32px; }
+      .philosophy-visual { grid-template-columns: 1fr 1fr; }
+      .philosophy-stats { gap: 24px; }
+
+      .trust-bar-inner { gap: 16px; }
+      .trust-divider { display: none; }
+
+      .sticky-wa {
+        bottom: 16px;
+        right: 16px;
+        padding: 12px 20px;
+        font-size: 13px;
+      }
+
+      .lk-wordmark-main { font-size: 15px; }
+      .lk-wordmark-sub { font-size: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 28px; }
+      .hero-subheadline { font-size: 13px; }
+      .stat-number { font-size: 30px; }
+      .programs-grid { gap: 16px; }
+      .program-card { flex-direction: column; }
+      .hero-stats-inner { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .hero-stat-num { font-size: 16px; }
+      .hero-stat-label { font-size: 8px; }
+      .hero-stats-strip { padding: 8px 12px; }
+    }
+
+    /* =============================================
+       UTILITY
+    ============================================= */
+    .text-center { text-align: center; }
+    .text-center .section-subheadline { margin-left: auto; margin-right: auto; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.10s; }
+    .reveal-delay-2 { transition-delay: 0.20s; }
+    .reveal-delay-3 { transition-delay: 0.30s; }
+    .reveal-delay-4 { transition-delay: 0.40s; }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER – FONDO BLANCO SIEMPRE
+       Logo correcto según Brand Guidelines 2025
+  =========================================== -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="nav-container">
+
+      <!-- LOGO: isotipo + wordmark sobre fondo blanco
+           BG 2025: logo en rojo, blanco o combinación de ambos.
+           Sobre fondo blanco: isotipo círculo rojo + "Little Kickers" en LK Red.
+           NO alterar colores, fuente ni proporciones. -->
+      <a href="#inicio" class="nav-logo" aria-label="Little Kickers Zona Poniente – Inicio">
+        <!-- Isotipo: submark LK en círculo rojo con letras blancas -->
+        <div class="lk-isotipo" aria-hidden="true">
+          <svg viewBox="0 0 52 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- L -->
+            <text x="1" y="28" font-family="Nunito, sans-serif" font-weight="900" font-size="28" fill="white">LK</text>
+          </svg>
+        </div>
+        <!-- Wordmark -->
+        <div class="lk-wordmark">
+          <span class="lk-wordmark-main">Little Kickers</span>
+          <span class="lk-wordmark-sub">Zona Poniente</span>
+        </div>
+      </a>
+
+      <!-- Navegación – links con contraste óptimo sobre fondo blanco -->
+      <nav class="nav-links" role="navigation" aria-label="Menú principal">
+        <a href="#programas">Programas</a>
+        <a href="#sedes">Sedes</a>
+        <a href="#como-es-una-clase">Clases</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20agendar%20una%20clase%20muestra%20gratis%20para%20mi%20hijo%20en%20Little%20Kickers%20Zona%20Poniente." 
+           target="_blank" rel="noopener noreferrer"
+           class="nav-cta" aria-label="Agendar clase muestra gratis por WhatsApp">
+          Agendar clase muestra
+        </a>
+      </nav>
+
+      <!-- Hamburger móvil -->
+      <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Menú móvil">
+    <a href="#programas" class="mobile-link">Programas</a>
+    <a href="#sedes" class="mobile-link">Sedes</a>
+    <a href="#como-es-una-clase" class="mobile-link">Clases</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20agendar%20una%20clase%20muestra%20gratis%20para%20mi%20hijo%20en%20Little%20Kickers%20Zona%20Poniente." 
+       target="_blank" rel="noopener noreferrer"
+       class="mobile-cta">
+      <i class="fab fa-whatsapp"></i> Agendar clase muestra gratis
+    </a>
+  </nav>
+
+  <!-- ==========================================
+       HERO – VIDEO FULL-BLEED
+  =========================================== -->
+  <main>
+  <section class="hero" id="inicio" aria-label="Inicio">
+
+    <!-- VIDEO DE FONDO -->
+    <div class="hero-video-bg">
+      <video
+        autoplay muted loop playsinline webkit-playsinline preload="auto"
+        poster="https://www.genspark.ai/api/files/s/NPTTBEC7"
+      >
+        <source src="https://www.genspark.ai/api/files/s/6sIgt8lq" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- OVERLAYS -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-overlay-bottom" aria-hidden="true"></div>
+    <div class="hero-overlay-top" aria-hidden="true"></div>
+
+    <div class="hero-container">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">Little Kickers Zona Poniente</div>
+        <h1 class="hero-headline">
+          <span class="headline-pnp">Play not Push</span>
+          Donde el fútbol<br>
+          empieza con<br>
+          <span class="accent-red">confianza.</span>
+        </h1>
+        <p class="hero-subheadline">
+          Clases para niños de <strong>18 meses a 8 años</strong> en Interlomas, Santa Fe, Cuajimalpa, Bosques, Huixquilucan y Chapultepec. Un método internacional diseñado para que aprender sea parte del juego.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20agendar%20una%20clase%20muestra%20gratis%20para%20mi%20hijo%20en%20Little%20Kickers%20Zona%20Poniente."
+             target="_blank" rel="noopener noreferrer"
+             class="btn-primary" aria-label="Agendar clase muestra gratis por WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Agendar clase muestra gratis
+          </a>
+          <a href="#programas" class="btn-secondary">
+            Ver programas y edades
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="hero-trust-strip" role="list">
+          <span class="trust-badge" role="listitem"><i class="fas fa-check-circle" aria-hidden="true"></i> 18 meses a 8 años</span>
+          <span class="trust-badge" role="listitem"><i class="fas fa-heart" aria-hidden="true"></i> Play not Push</span>
+          <span class="trust-badge" role="listitem"><i class="fas fa-globe" aria-hidden="true"></i> Metodología internacional</span>
+          <span class="trust-badge" role="listitem"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> 3 sedes · 6 zonas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS STRIP -->
+    <div class="hero-stats-strip" aria-label="Estadísticas">
+      <div class="hero-stats-inner">
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">+<span>80K</span></span>
+          <span class="hero-stat-label">Niños / semana</span>
+        </div>
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num"><span>320</span>+</span>
+          <span class="hero-stat-label">Franquicias globales</span>
+        </div>
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num"><span>26</span></span>
+          <span class="hero-stat-label">Países</span>
+        </div>
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num"><span>23</span> años</span>
+          <span class="hero-stat-label">De experiencia</span>
+        </div>
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num"><span>3</span></span>
+          <span class="hero-stat-label">Sedes Zona Poniente</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- INDICADOR -->
+    <div class="video-indicator" aria-hidden="true">
+      <div class="video-dot"></div>
+      Little Kickers en acción
+    </div>
+
+  </section>
+
+  <!-- ==========================================
+       TRUST BAR
+  =========================================== -->
+  <div class="trust-bar" role="complementary" aria-label="Sellos de confianza">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <i class="fas fa-trophy" aria-hidden="true"></i>
+        Best Children's Franchise 2025
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item">
+        <i class="fas fa-child" aria-hidden="true"></i>
+        Aprendizaje a través del juego
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item">
+        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        Entorno sin presión
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        Clase muestra <strong>100% gratis</strong>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+        Zona Poniente CDMX
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MÁS QUE FÚTBOL – PILARES
+  =========================================== -->
+  <section class="section" id="mas-que-futbol" aria-labelledby="pilares-headline">
+    <div class="section-container">
+      <div class="pillars-photo-banner">
+        <img src="https://www.genspark.ai/api/files/s/zH7MRGSd"
+             alt="Coach de Little Kickers dando un high-five a un niño en la cancha" loading="lazy" />
+        <div class="pillars-photo-overlay">
+          <div class="pillars-photo-copy">
+            <span class="section-eyebrow">Más que fútbol</span>
+            <h2 id="pilares-headline">Cada clase construye algo<br>más profundo que un gol.</h2>
+            <p>Nuestro programa no es solo sobre fútbol. Es sobre el niño que crece dentro de la cancha y fuera de ella.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card reveal">
+          <div class="pillar-icon" aria-hidden="true">🦁</div>
+          <h3 class="pillar-title">Confianza</h3>
+          <p class="pillar-desc">Cada pequeño logro dentro de la cancha refuerza la autoestima y la seguridad personal de tu hijo en todos los ámbitos de su vida.</p>
+        </div>
+        <div class="pillar-card reveal reveal-delay-1">
+          <div class="pillar-icon" aria-hidden="true">⚡</div>
+          <h3 class="pillar-title">Coordinación</h3>
+          <p class="pillar-desc">A través del juego estructurado, desarrollan habilidades motoras finas y gruesas, equilibrio y coordinación óculo-pédica desde temprana edad.</p>
+        </div>
+        <div class="pillar-card reveal reveal-delay-2">
+          <div class="pillar-icon" aria-hidden="true">🤝</div>
+          <h3 class="pillar-title">Habilidades sociales</h3>
+          <p class="pillar-desc">Aprender a seguir instrucciones, trabajar en equipo, esperar turno y celebrar juntos son competencias para la vida que se construyen en cada clase.</p>
+        </div>
+        <div class="pillar-card reveal reveal-delay-3">
+          <div class="pillar-icon" aria-hidden="true">⚽</div>
+          <h3 class="pillar-title">Amor por el deporte</h3>
+          <p class="pillar-desc">Sin presión ni competencia prematura, los niños desarrollan una relación positiva y duradera con el deporte y la actividad física.</p>
+        </div>
+      </div>
+      <img src="https://www.genspark.ai/api/files/s/Nx49dyEP"
+           alt="Manos de niños y coaches unidas en círculo de equipo Little Kickers"
+           class="pillars-team-photo reveal" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- PLAY NOT PUSH -->
+  <section class="section section-alt" id="metodologia" aria-labelledby="metodologia-headline">
+    <div class="section-container">
+      <div class="philosophy-block">
+        <div class="philosophy-text">
+          <span class="section-eyebrow" style="color: rgba(255,255,255,0.50);">Nuestra filosofía</span>
+          <h2 class="philosophy-headline" id="metodologia-headline">
+            <span class="pnp-badge">"Play not Push"</span><br>
+            Una metodología diseñada para que aprender sea parte del juego.
+          </h2>
+          <p class="philosophy-body">
+            Creemos que los niños pequeños aprenden mejor cuando se divierten. Por eso, cada sesión de Little Kickers está diseñada para ser positiva, sin presión y centrada en el desarrollo real del niño — no en la competencia.
+          </p>
+          <div class="philosophy-stats">
+            <div class="philo-stat">
+              <div class="philo-stat-number">23</div>
+              <div class="philo-stat-label">años de experiencia<br>refinando el método</div>
+            </div>
+            <div class="philo-stat">
+              <div class="philo-stat-number">26</div>
+              <div class="philo-stat-label">países donde<br>opera Little Kickers</div>
+            </div>
+          </div>
+        </div>
+        <div class="philosophy-visual" aria-label="Principios de la metodología">
+          <div style="grid-column:1/-1;border-radius:16px;overflow:hidden;height:190px;">
+            <img src="https://www.genspark.ai/api/files/s/YR5EfFQF"
+                 alt="Niña Little Kickers con balón y adulto, expresión divertida"
+                 style="width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;"
+                 loading="lazy" />
+          </div>
+          <div class="philo-card">
+            <div class="philo-card-icon" aria-hidden="true">🎯</div>
+            <div class="philo-card-title">Aprendizaje por juego</div>
+            <div class="philo-card-text">Estructura lúdica que estimula la imaginación y el desarrollo cognitivo.</div>
+          </div>
+          <div class="philo-card">
+            <div class="philo-card-icon" aria-hidden="true">🌈</div>
+            <div class="philo-card-title">Educación integrada</div>
+            <div class="philo-card-text">Colores, números, instrucciones — aprendizaje preescolar dentro de la cancha.</div>
+          </div>
+          <div class="philo-card">
+            <div class="philo-card-icon" aria-hidden="true">📈</div>
+            <div class="philo-card-title">Ritmo individual</div>
+            <div class="philo-card-text">Cada niño avanza a su propio ritmo dentro de un grupo motivador.</div>
+          </div>
+          <div class="philo-card">
+            <div class="philo-card-icon" aria-hidden="true">🏆</div>
+            <div class="philo-card-title">Sin presión competitiva</div>
+            <div class="philo-card-text">El logro del niño, no el resultado, es siempre el objetivo central.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PROGRAMAS POR EDAD
+  =========================================== -->
+  <section class="section" id="programas" aria-labelledby="programas-headline">
+    <div class="section-container">
+      <span class="section-eyebrow">Programas por edad</span>
+      <h2 class="section-headline" id="programas-headline">
+        Un programa para cada<br>etapa de su desarrollo.
+      </h2>
+      <p class="section-subheadline">
+        Diseñados por especialistas en desarrollo infantil y fútbol, nuestros cuatro programas acompañan a tu hijo desde sus primeros pasos hasta los 8 años.
+      </p>
+      <div class="programs-grid">
+
+        <!-- Little Kicks -->
+        <div class="program-card reveal">
+          <img src="https://www.genspark.ai/api/files/s/oWlnzYMx" alt="Niño Little Kickers celebrando con brazos arriba" class="program-photo" loading="lazy" />
+          <div class="program-icon-wrap" aria-hidden="true">🐣</div>
+          <div class="program-body">
+            <span class="program-age-tag">18 meses – 2 años 6 meses</span>
+            <h3 class="program-name">Little Kicks</h3>
+            <p class="program-claim">El primer contacto con el juego y la confianza.</p>
+            <p class="program-desc">
+              La introducción perfecta al mundo Little Kickers. Los niños aprenden lo básico del fútbol — dribling, patear, marcar goles — en un formato orientado al juego, acompañados de su mamá o papá. Cada niño progresa a su propio ritmo desarrollándose física, cognitiva y socialmente.
+            </p>
+            <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20Little%20Kicks%20(18%20meses%20a%202.5%20años)%20-%20clase%20muestra%20gratis." 
+               target="_blank" rel="noopener noreferrer"
+               class="program-link" aria-label="Agendar clase muestra para Little Kicks">
+              Reservar clase muestra <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Junior Kicks -->
+        <div class="program-card reveal reveal-delay-1">
+          <img src="https://www.genspark.ai/api/files/s/RPGrdi03" alt="Niño Little Kickers corriendo con energía y sonrisa" class="program-photo" loading="lazy" />
+          <div class="program-icon-wrap" aria-hidden="true">🌟</div>
+          <div class="program-body">
+            <span class="program-age-tag">2 años 6 meses – 3 años 6 meses</span>
+            <h3 class="program-name">Junior Kicks</h3>
+            <p class="program-claim">Más coordinación, más interacción, mismo entusiasmo.</p>
+            <p class="program-desc">
+              Junior Kicks consolida las habilidades aprendidas en Little Kicks. Con una estructura familiar, los niños son desafiados física y mentalmente. El aprendizaje a través del juego permite avanzar al propio ritmo, siendo apto tanto para jugadores experimentados como para principiantes.
+            </p>
+            <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20Junior%20Kicks%20(2.5%20a%203.5%20años)%20-%20clase%20muestra%20gratis." 
+               target="_blank" rel="noopener noreferrer"
+               class="program-link" aria-label="Agendar clase muestra para Junior Kicks">
+              Reservar clase muestra <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mighty Kicks -->
+        <div class="program-card reveal reveal-delay-2">
+          <img src="https://www.genspark.ai/api/files/s/GKIGeQCO" alt="Niña Little Kickers haciendo corazón con las manos" class="program-photo" loading="lazy" />
+          <div class="program-icon-wrap" aria-hidden="true">💪</div>
+          <div class="program-body">
+            <span class="program-age-tag">3 años 6 meses – 5 años</span>
+            <h3 class="program-name">Mighty Kicks</h3>
+            <p class="program-claim">Juego guiado, autonomía y trabajo en equipo.</p>
+            <p class="program-desc">
+              Mighty Kicks ofrece planes de sesión diseñados para canalizar la confianza y la energía de los niños en esta etapa. Cada juego de ritmo rápido es cada vez más enfocado en el fútbol, mientras mantiene la diversión al frente — fácil de unirse para jugadores de cualquier nivel.
+            </p>
+            <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20Mighty%20Kicks%20(3.5%20a%205%20años)%20-%20clase%20muestra%20gratis." 
+               target="_blank" rel="noopener noreferrer"
+               class="program-link" aria-label="Agendar clase muestra para Mighty Kicks">
+              Reservar clase muestra <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mega Kicks -->
+        <div class="program-card reveal reveal-delay-3">
+          <img src="https://www.genspark.ai/api/files/s/8DOcV3fl" alt="Niña Little Kickers con actitud segura bajo cielo azul" class="program-photo" loading="lazy" />
+          <div class="program-icon-wrap" aria-hidden="true">🚀</div>
+          <div class="program-body">
+            <span class="program-age-tag">5 años – 8 años</span>
+            <h3 class="program-name">Mega Kicks</h3>
+            <p class="program-claim">Coordinación, confianza y comprensión del juego real.</p>
+            <p class="program-desc">
+              La culminación de los tres programas anteriores, combinando todas las habilidades aprendidas con juego real. Enfocado en juego limpio, comprensión y aplicación práctica de las reglas, los niños refinan y aplican sus habilidades en el partido final extendido de cada sesión.
+            </p>
+            <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20Mega%20Kicks%20(5%20a%208%20años)%20-%20clase%20muestra%20gratis." 
+               target="_blank" rel="noopener noreferrer"
+               class="program-link" aria-label="Agendar clase muestra para Mega Kicks">
+              Reservar clase muestra <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CÓMO ES UNA CLASE
+  =========================================== -->
+  <section class="section section-alt" id="como-es-una-clase" aria-labelledby="clase-headline">
+    <div class="section-container">
+      <div class="clase-grid">
+
+        <!-- Columna izquierda: fotos -->
+        <div>
+          <div class="clase-photo-wrap">
+            <img src="https://www.genspark.ai/api/files/s/NPTTBEC7"
+                 alt="Niños Little Kickers jugando un partido en clase, coach al fondo"
+                 loading="lazy" />
+            <div class="clase-photo-badge">
+              <div class="clase-photo-badge-icon"><i class="fas fa-futbol"></i></div>
+              <div class="clase-photo-badge-text">
+                <strong>Partido final</strong>
+                <span>En cada clase Mighty y Mega</span>
+              </div>
+            </div>
+          </div>
+          <img src="https://www.genspark.ai/api/files/s/bWYDN1vQ"
+               alt="Niño practicando control de balón en Little Kickers"
+               class="clase-detail-photo" loading="lazy" />
+        </div>
+
+        <!-- Columna derecha: copy + pasos -->
+        <div>
+          <ol class="class-steps" aria-label="Pasos de una clase">
+            <li class="class-step">
+              <div class="step-number" aria-hidden="true">1</div>
+              <div class="step-content">
+                <h3 class="step-title">Bienvenida y calentamiento</h3>
+                <p class="step-desc">Los niños llegan, se saludan y empiezan con actividades dinámicas que despiertan la energía y preparan el cuerpo para jugar.</p>
+              </div>
+            </li>
+            <li class="class-step">
+              <div class="step-number" aria-hidden="true">2</div>
+              <div class="step-content">
+                <h3 class="step-title">Habilidades con el balón</h3>
+                <p class="step-desc">Ejercicios adaptados a la edad que desarrollan coordinación, equilibrio y control del balón de forma lúdica y progresiva.</p>
+              </div>
+            </li>
+            <li class="class-step">
+              <div class="step-number" aria-hidden="true">3</div>
+              <div class="step-content">
+                <h3 class="step-title">Juegos de equipo</h3>
+                <p class="step-desc">Actividades grupales que fomentan la colaboración, el respeto por los compañeros y la comprensión básica del juego colectivo.</p>
+              </div>
+            </li>
+            <li class="class-step">
+              <div class="step-number" aria-hidden="true">4</div>
+              <div class="step-content">
+                <h3 class="step-title">Partido final</h3>
+                <p class="step-desc">En programas Mighty y Mega, los niños aplican todo lo aprendido en un partido real, emocionante y sin presión de resultado.</p>
+              </div>
+            </li>
+            <li class="class-step">
+              <div class="step-number" aria-hidden="true">5</div>
+              <div class="step-content">
+                <h3 class="step-title">Cierre y reconocimiento</h3>
+                <p class="step-desc">Cada clase termina celebrando los logros del día. Los niños se van con una sonrisa, seguros de que son capaces.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SEDES Y LOCALIZACIÓN
+  =========================================== -->
+  <section class="section" id="sedes" aria-labelledby="sedes-headline">
+    <div class="section-container">
+      <div class="locations-intro">
+        <div>
+          <span class="section-eyebrow">Sedes zona Poniente</span>
+          <h2 class="section-headline" id="sedes-headline">
+            Encuentra tu sede<br>ideal cerca de casa.
+          </h2>
+          <p class="section-subheadline" style="margin-bottom: 0;">
+            Tres sedes estratégicamente ubicadas para que Interlomas, Santa Fe, Cuajimalpa, Bosques, Huixquilucan y Chapultepec siempre tengan una opción cerca.
+          </p>
+        </div>
+      </div>
+
+      <!-- Zone coverage -->
+      <div class="zones-coverage" role="list" aria-label="Zonas con cobertura">
+        <p>Cubrimos:</p>
+        <span class="zone-pill" role="listitem">Interlomas</span>
+        <span class="zone-pill" role="listitem">Santa Fe</span>
+        <span class="zone-pill" role="listitem">Cuajimalpa</span>
+        <span class="zone-pill" role="listitem">Bosques</span>
+        <span class="zone-pill" role="listitem">Huixquilucan</span>
+        <span class="zone-pill" role="listitem">Chapultepec</span>
+      </div>
+
+      <div class="locations-grid">
+
+        <div class="location-card reveal">
+          <span class="location-badge">
+            <i class="fas fa-map-pin" aria-hidden="true"></i>
+            Sede Norponiente
+          </span>
+          <h3 class="location-name">Casacarita Park</h3>
+          <div class="location-zones" aria-label="Zonas cercanas">
+            <span class="zone-tag">Interlomas</span>
+            <span class="zone-tag">Huixquilucan</span>
+            <span class="zone-tag">Bosques</span>
+          </div>
+          <p class="location-desc">
+            Un espacio amplio y seguro en el corazón de Interlomas, ideal para familias de Huixquilucan y Bosques de las Lomas. Horarios de mañana y tarde disponibles.
+          </p>
+          <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20agendar%20una%20clase%20muestra%20gratis%20en%20Casacarita%20Park." 
+             target="_blank" rel="noopener noreferrer"
+             class="btn-location" aria-label="Reservar clase muestra en Casacarita Park">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Reservar aquí
+          </a>
+        </div>
+
+        <div class="location-card reveal reveal-delay-1">
+          <span class="location-badge">
+            <i class="fas fa-map-pin" aria-hidden="true"></i>
+            Sede Suroeste
+          </span>
+          <h3 class="location-name">Merici Colegio</h3>
+          <div class="location-zones" aria-label="Zonas cercanas">
+            <span class="zone-tag">Santa Fe</span>
+            <span class="zone-tag">Cuajimalpa</span>
+            <span class="zone-tag">Bosques</span>
+          </div>
+          <p class="location-desc">
+            Instalaciones de primer nivel en el corredor Santa Fe-Cuajimalpa, perfectas para familias de las colonias de alto nivel en el poniente de la ciudad.
+          </p>
+          <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20agendar%20una%20clase%20muestra%20gratis%20en%20Merici%20Colegio." 
+             target="_blank" rel="noopener noreferrer"
+             class="btn-location" aria-label="Reservar clase muestra en Merici Colegio">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Reservar aquí
+          </a>
+        </div>
+
+        <div class="location-card reveal reveal-delay-2">
+          <span class="location-badge">
+            <i class="fas fa-map-pin" aria-hidden="true"></i>
+            Sede Centro-Poniente
+          </span>
+          <h3 class="location-name">El Sope Chapultepec</h3>
+          <div class="location-zones" aria-label="Zonas cercanas">
+            <span class="zone-tag">Chapultepec</span>
+            <span class="zone-tag">Bosques</span>
+            <span class="zone-tag">Santa Fe</span>
+          </div>
+          <p class="location-desc">
+            Ubicación céntrica con fácil acceso desde Chapultepec y zonas aledañas, con ambiente seguro y familiar para los más pequeños.
+          </p>
+          <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20agendar%20una%20clase%20muestra%20gratis%20en%20El%20Sope%20Chapultepec." 
+             target="_blank" rel="noopener noreferrer"
+             class="btn-location" aria-label="Reservar clase muestra en El Sope Chapultepec">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Reservar aquí
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Location help block -->
+      <div class="location-help">
+        <p>¿No sabes qué sede te conviene más? Te ayudamos en segundos.</p>
+        <a href="https://wa.me/5215565352797?text=Hola%2C%20no%20sé%20qué%20sede%20me%20conviene%20más.%20¿Me%20pueden%20ayudar%20a%20elegir?" 
+           target="_blank" rel="noopener noreferrer"
+           class="btn-primary" aria-label="Pedir ayuda por WhatsApp para elegir sede">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TESTIMONIOS
+  =========================================== -->
+  <section class="section section-alt" id="testimonios" aria-labelledby="testimonios-headline">
+    <div class="section-container">
+      <div class="text-center">
+        <span class="section-eyebrow">Lo que dicen los padres</span>
+        <h2 class="section-headline" id="testimonios-headline">
+          Cada familia tiene una historia.<br>La tuya puede ser la siguiente.
+        </h2>
+      </div>
+
+      <!-- Galería de fotos -->
+      <div class="testimonials-photo-strip" aria-hidden="true">
+        <div class="tphoto-item">
+          <img src="https://www.genspark.ai/api/files/s/3zdpf3kz" alt="Papá ayudando a su bebé junto a porteria Little Kickers" loading="lazy" />
+        </div>
+        <div class="tphoto-item">
+          <img src="https://www.genspark.ai/api/files/s/iv2yMBwM" alt="Pies de niños con balones Little Kickers en césped" loading="lazy" />
+        </div>
+        <div class="tphoto-item">
+          <img src="https://www.genspark.ai/api/files/s/GKIGeQCO" alt="Niña Little Kickers sonriendo con corazón" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card reveal">
+          <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="testimonial-text">
+            "Mi hijo tenía miedo de socializar. Después de tres semanas en Little Kickers ya pide ir al fútbol él solo. El ambiente que generan los coaches es excepcional, siempre cálido y sin ninguna presión."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar av1" aria-hidden="true">MS</div>
+            <div>
+              <div class="author-name">Mariana S.</div>
+              <div class="author-detail">Mamá de Emilio, 3 años · Interlomas</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="testimonial-text">
+            "La metodología realmente funciona. Mi hija aprendió colores, números y a esperar su turno — todo en la cancha. Es mucho más que una clase de fútbol, es una herramienta de desarrollo real."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar av2" aria-hidden="true">RC</div>
+            <div>
+              <div class="author-name">Rodrigo C.</div>
+              <div class="author-detail">Papá de Valentina, 4 años · Santa Fe</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="testimonial-text">
+            "Probamos la clase muestra y ya no pudimos parar. Los coaches son increíbles con los niños, el nivel de atención es muy alto y el ambiente es completamente positivo. Mi hijo ya lleva 8 meses y cada semana llega emocionado."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar av3" aria-hidden="true">AP</div>
+            <div>
+              <div class="author-name">Alejandra P.</div>
+              <div class="author-detail">Mamá de Diego, 5 años · Bosques de las Lomas</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FAQ
+  =========================================== -->
+  <section class="section" id="faq" aria-labelledby="faq-headline">
+    <div class="section-container">
+      <div class="text-center">
+        <span class="section-eyebrow">Preguntas frecuentes</span>
+        <h2 class="section-headline" id="faq-headline">
+          Lo que todo padre pregunta<br>antes de la clase muestra.
+        </h2>
+        <p class="section-subheadline">
+          Resolvemos las dudas más comunes para que llegues a la clase muestra con toda la seguridad del mundo.
+        </p>
+      </div>
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq1-answer">
+            ¿Qué edad necesita tener mi hijo para inscribirse?
+            <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" id="faq1-answer" role="region">
+            <div class="faq-answer-inner">
+              Little Kickers acepta niños desde los <strong>18 meses hasta los 8 años</strong>. Tenemos cuatro programas adaptados a cada etapa de desarrollo: Little Kicks (18 meses-2.5 años), Junior Kicks (2.5-3.5 años), Mighty Kicks (3.5-5 años) y Mega Kicks (5-8 años). Si tienes duda sobre cuál es el más adecuado para tu hijo, escríbenos y te orientamos.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq2-answer">
+            ¿Qué significa "Play not Push"?
+            <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" id="faq2-answer" role="region">
+            <div class="faq-answer-inner">
+              Es la filosofía central de Little Kickers. Significa que enseñamos fútbol en un <strong>ambiente positivo, sin presión</strong>, donde la diversión y el aprendizaje van de la mano. Nunca empujamos a los niños a rendir más de lo que quieren; los acompañamos a descubrir sus capacidades a su propio ritmo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq3-answer">
+            ¿La clase muestra es completamente gratis?
+            <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" id="faq3-answer" role="region">
+            <div class="faq-answer-inner">
+              <strong>Sí, 100% gratis.</strong> La clase muestra es una sesión completa sin ningún costo ni compromiso de inscripción. Tu hijo participa en una clase real con el grupo correspondiente a su edad, en la sede que te resulte más conveniente. Al final, tú decides si quieres continuar.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq4-answer">
+            ¿Mi hijo necesita experiencia previa en fútbol?
+            <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" id="faq4-answer" role="region">
+            <div class="faq-answer-inner">
+              <strong>No, para nada.</strong> Little Kickers es el punto de partida perfecto. Nuestros programas están diseñados para ser igualmente accesibles para niños sin ninguna experiencia y para los que ya tienen algo de práctica. Los coaches adaptan las actividades para que todos participen y progresen.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq5-answer">
+            ¿Qué necesita traer mi hijo a la clase?
+            <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" id="faq5-answer" role="region">
+            <div class="faq-answer-inner">
+              Solo necesita ropa cómoda y deportiva, tenis o zapatos con suela plana (no spikes), y agua. No se requiere uniforme ni equipo especial para la clase muestra. Nosotros ponemos los balones y todo el material de clase.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq6-answer">
+            ¿Cómo sé cuál sede está más cerca de mi casa?
+            <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" id="faq6-answer" role="region">
+            <div class="faq-answer-inner">
+              Tenemos tres sedes en Zona Poniente: <strong>Casacarita Park</strong> (ideal para Interlomas, Huixquilucan y Bosques), <strong>Merici Colegio</strong> (Santa Fe, Cuajimalpa y Bosques) y <strong>El Sope Chapultepec</strong> (Chapultepec, Bosques y Santa Fe). Si no estás seguro cuál te conviene más, escríbenos por WhatsApp y te orientamos en segundos.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CTA FINAL
+  =========================================== -->
+  <section class="cta-final" id="clase-muestra" aria-labelledby="cta-headline">
+    <div class="cta-final-bg" aria-hidden="true">
+      <img src="https://www.genspark.ai/api/files/s/oWlnzYMx" alt="" loading="lazy" />
+    </div>
+    <div class="cta-final-container">
+      <span class="cta-final-eyebrow">Clase muestra gratis</span>
+      <h2 class="cta-final-headline" id="cta-headline">
+        Tu hijo no necesita presión.<br>Necesita el lugar correcto<br>para empezar.
+      </h2>
+      <p class="cta-final-sub">
+        Una sesión completa, gratis, sin compromiso. Ven a ver cómo Little Kickers transforma la cancha en el mejor salón de clases del mundo.
+      </p>
+      <a href="https://wa.me/5215565352797?text=Hola%2C%20quiero%20agendar%20una%20clase%20muestra%20gratis%20para%20mi%20hijo%20en%20Little%20Kickers%20Zona%20Poniente.%20¿Me%20pueden%20ayudar%20a%20elegir%20sede%20y%20horario?" 
+         target="_blank" rel="noopener noreferrer"
+         class="btn-cta-white" aria-label="Agendar clase muestra gratis por WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        Agendar clase muestra gratis por WhatsApp
+      </a>
+      <p class="cta-microcopy">
+        Respuesta rápida · Te ayudamos a elegir sede y horario
+      </p>
+    </div>
+  </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <!-- Footer logo: submark en fondo oscuro (versión blanca permitida por BG) -->
+          <div class="footer-logo" aria-label="Little Kickers Zona Poniente">
+            <div class="footer-logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 52 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <text x="1" y="28" font-family="Nunito, sans-serif" font-weight="900" font-size="28" fill="white">LK</text>
+              </svg>
+            </div>
+            <span class="footer-brand-name">Little Kickers</span>
+          </div>
+          <p class="footer-brand-desc">
+            Clases de fútbol para niños de 18 meses a 8 años en Zona Poniente. Metodología Play not Push, en un entorno seguro, positivo y sin presión.
+          </p>
+          <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20Little%20Kickers%20Zona%20Poniente." 
+             target="_blank" rel="noopener noreferrer"
+             class="btn-primary" style="font-size: 14px; padding: 12px 24px;" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+        <div>
+          <div class="footer-col-title">Navegación</div>
+          <nav class="footer-links" aria-label="Navegación del footer">
+            <a href="#programas">Programas</a>
+            <a href="#sedes">Sedes y horarios</a>
+            <a href="#como-es-una-clase">Cómo es una clase</a>
+            <a href="#faq">FAQ</a>
+            <a href="#clase-muestra">Clase muestra gratis</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer-col-title">Sedes</div>
+          <nav class="footer-links" aria-label="Sedes del footer">
+            <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20Casacarita%20Park." target="_blank" rel="noopener noreferrer">Casacarita Park</a>
+            <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20Merici%20Colegio." target="_blank" rel="noopener noreferrer">Merici Colegio</a>
+            <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20El%20Sope%20Chapultepec." target="_blank" rel="noopener noreferrer">El Sope Chapultepec</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer-col-title">Zonas</div>
+          <nav class="footer-links" aria-label="Zonas del footer">
+            <a href="#sedes">Interlomas</a>
+            <a href="#sedes">Santa Fe</a>
+            <a href="#sedes">Cuajimalpa</a>
+            <a href="#sedes">Bosques</a>
+            <a href="#sedes">Huixquilucan</a>
+            <a href="#sedes">Chapultepec</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">
+          © 2025 Little Kickers Zona Poniente · Todos los derechos reservados
+        </p>
+        <p class="footer-disclaimer">
+          Esta franquicia es de operación independiente.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       STICKY WHATSAPP CTA
+  =========================================== -->
+  <a href="https://wa.me/5215565352797?text=Hola%2C%20quiero%20agendar%20una%20clase%20muestra%20gratis%20para%20mi%20hijo%20en%20Little%20Kickers%20Zona%20Poniente." 
+     target="_blank" rel="noopener noreferrer"
+     class="sticky-wa" aria-label="Agendar clase muestra gratis por WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    Agendar clase muestra gratis
+  </a>
+
+  <!-- ==========================================
+       JAVASCRIPT
+  =========================================== -->
+  <script>
+    // ---- Header scroll effect ----
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ---- Hamburger / Mobile Nav ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileLinks = document.querySelectorAll('.mobile-link, .mobile-cta');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      // animate hamburger icon
+      const spans = hamburger.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'rotate(45deg) translateY(7px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translateY(-7px)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    // Close mobile nav on link click
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && !mobileNav.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    // ---- Smooth scroll for anchor links ----
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80; // header height
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ---- FAQ Accordion ----
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-answer').classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if wasn't open
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ---- Scroll reveal ----
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ---- Active nav link on scroll ----
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.style.color = '';
+            link.style.background = '';
+            if (link.getAttribute('href') === '#' + entry.target.id) {
+              link.style.color = 'var(--lk-red)';
+            }
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // ---- Como es una clase layout responsive ----
+    function adjustClassLayout() {
+      const claseSection = document.querySelector('#como-es-una-clase .section-container > div');
+      if (claseSection) {
+        if (window.innerWidth <= 768) {
+          claseSection.style.gridTemplateColumns = '1fr';
+          claseSection.style.gap = '40px';
+        } else {
+          claseSection.style.gridTemplateColumns = '1fr 1fr';
+          claseSection.style.gap = '80px';
+        }
+      }
+    }
+    adjustClassLayout();
+    window.addEventListener('resize', adjustClassLayout, { passive: true });
+  </script>
+</body>
+</html>
