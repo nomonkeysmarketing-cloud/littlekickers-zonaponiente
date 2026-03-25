@@ -258,8 +258,8 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:48px}.hero-vis{max-width:440px;margin:0 auto}.ben-g{grid-template-columns:repeat(2,1fr)}.phi-grid{grid-template-columns:1fr}.prg-g{grid-template-columns:1fr}.stp-g{grid-template-columns:repeat(3,1fr)}.sed-g{grid-template-columns:1fr}.test-g{grid-template-columns:1fr}.ft-g{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.top-bar{height:auto;padding:6px 16px;flex-wrap:wrap;gap:4px}.top-bar-text{font-size:10px}.top-bar-sep{display:none}nav{padding:12px 20px;top:28px}.n-links{display:none}.ham{display:flex}.sec{padding:72px 20px}.hero{padding:120px 20px 60px}.ben-g{grid-template-columns:1fr}.stp-g{grid-template-columns:1fr}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){h1{font-size:32px;letter-spacing:-.5px}.sec-h{font-size:26px}}
+@media(max-width:768px){.top-bar{height:auto;padding:6px 16px;flex-wrap:wrap;gap:4px}.top-bar-text{font-size:10px}.top-bar-sep{display:none}nav{padding:12px 20px;top:28px}.n-links{display:none}.ham{display:flex}.sec{padding:48px 20px}.hero{padding:110px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}.stp-g{grid-template-columns:1fr}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3}.phi-grid{gap:36px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}}
+@media(max-width:480px){h1{font-size:32px;letter-spacing:-.5px}.sec-h{font-size:26px}.phi-img{aspect-ratio:1/1}}
 </style>
 </head>
 <body>
@@ -318,7 +318,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
       </div>
     </div>
     <div class="hero-vis rv d2">
-      <video class="hero-vid" autoplay muted loop playsinline poster="images/hero-celebration.webp" width="500" height="625">
+      <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="images/hero-celebration.webp" width="500" height="625">
         <source src="images/hero-video.mp4" type="video/mp4">
         <img src="images/hero-celebration.webp" alt="Little Kickers en acción" class="hero-img" width="500" height="625">
       </video>
@@ -499,6 +499,8 @@ document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
 function tFaq(el){const it=el.closest('.faq-item'),w=it.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!w)it.classList.add('open')}
 function toggleMenu(){document.getElementById('mob').classList.toggle('open');document.getElementById('ham').classList.toggle('open')}
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+// Video autoplay fallback
+const hv=document.querySelector('.hero-vid');if(hv){hv.play().catch(()=>{document.addEventListener('touchstart',()=>hv.play(),{once:true});document.addEventListener('click',()=>hv.play(),{once:true})});}
 </script>
 </body>
 </html>
