@@ -42,7 +42,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 nav.scrolled{padding:10px 48px;box-shadow:var(--ss)}
 .n-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .n-logo-icon{height:38px;display:flex;align-items:center}
-.n-logo-icon img,.n-logo-icon svg{height:38px;width:auto}
+.n-logo-icon img{height:38px;width:auto}
 .n-logo-txt{display:flex;flex-direction:column}
 .n-logo-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;color:var(--dark);letter-spacing:-.3px;line-height:1.1}
 .n-logo-sub{font-size:10px;color:var(--lk-dg);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
@@ -142,7 +142,7 @@ h1 .uy::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:10px
 .phi-st{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px;text-align:center}
 .phi-st-n{font-family:'Nunito',sans-serif;font-weight:900;font-size:40px;color:var(--lk-yellow);line-height:1}
 .phi-st-l{font-size:12px;color:rgba(255,255,255,.55);margin-top:6px}
-.phi-img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--rl);box-shadow:var(--sx);border:4px solid rgba(255,255,255,.15)}
+.phi-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center center;border-radius:var(--rl);box-shadow:var(--sx);border:4px solid rgba(255,255,255,.15)}
 .phi-feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
 .phi-ft{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px;display:flex;align-items:center;gap:10px}
 .phi-ft-i{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
@@ -264,11 +264,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
   <a href="#" class="n-logo">
     <!-- Official LK Logo SVG (red on white, pill shape) -->
     <div class="n-logo-icon">
-      <svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg" height="38">
-        <rect x="0" y="0" width="180" height="48" rx="24" fill="#E31F26"/>
-        <text x="16" y="33" font-family="'Nunito','Arial',sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="-0.5">Little Kickers</text>
-        <circle cx="170" cy="8" r="3" fill="none" stroke="#FFF" stroke-width="1.5"/>
-      </svg>
+      <img src="images/logo.webp" alt="Little Kickers" height="38" width="auto">
     </div>
     <div class="n-logo-txt">
       <div class="n-logo-sub">Zona Poniente</div>
@@ -359,7 +355,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
         </div>
       </div>
       <div class="rv d2">
-        <img src="images/philosophy-dad.jpg" alt="Papá e hija jugando con balón de Little Kickers" class="phi-img" width="600" height="800" loading="lazy">
+        <img src="images/philosophy-dad.jpg" alt="Papá jugando con su hija en Little Kickers, filosofía Play not Push" class="phi-img" width="600" height="800" loading="lazy">
         <div class="phi-feats">
           <div class="phi-ft"><div class="phi-ft-i">🎯</div><div class="phi-ft-t">Aprendizaje por juego</div></div>
           <div class="phi-ft"><div class="phi-ft-i">🌈</div><div class="phi-ft-t">Educación integrada</div></div>
