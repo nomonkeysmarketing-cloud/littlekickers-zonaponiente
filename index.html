@@ -259,7 +259,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:1366px){.hero-sm.p1{left:-15px}.hero-sm.p2{width:120px;height:120px}.hero-fl.f2{left:-15px}}
 @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:48px}.hero-vis{max-width:440px;margin:0 auto}.ben-g{grid-template-columns:repeat(2,1fr)}.phi-grid{grid-template-columns:1fr}.prg-g{grid-template-columns:1fr}.stp-g{grid-template-columns:repeat(3,1fr)}.sed-g{grid-template-columns:1fr}.test-g{grid-template-columns:1fr}.ft-g{grid-template-columns:repeat(2,1fr)}.phi-img{max-height:350px}}
-@media(max-width:768px){.top-bar{height:auto;padding:6px 16px;flex-wrap:wrap;gap:4px}.top-bar-text{font-size:10px}.top-bar-sep{display:none}nav{padding:12px 20px;top:28px}.n-links{display:none}.ham{display:flex}.sec{padding:48px 20px}.hero{padding:110px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}.stp-g{grid-template-columns:1fr}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
+@media(max-width:768px){.top-bar{display:none}nav{padding:10px 16px;top:0}.n-links{display:none}.n-cta{display:none}.ham{display:flex}.sec{padding:48px 20px}.hero{padding:80px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}.stp-g{grid-template-columns:1fr}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
 @media(max-width:480px){h1{font-size:32px;letter-spacing:-.5px}.sec-h{font-size:26px}.phi-img{aspect-ratio:1/1;max-height:250px}.fcta{padding:48px 16px}}
 </style>
 </head>
@@ -495,7 +495,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 
 <script>
 window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
-const nv=document.getElementById('nav');const tb=document.getElementById('topbar');window.addEventListener('scroll',()=>{const s=scrollY>50;nv.classList.toggle('scrolled',s);tb.style.transform=s?'translateY(-100%)':'';tb.style.transition='transform .35s'});
+const nv=document.getElementById('nav');const tb=document.getElementById('topbar');window.addEventListener('scroll',()=>{const s=scrollY>50;nv.classList.toggle('scrolled',s);if(tb&&window.innerWidth>768){tb.style.transform=s?'translateY(-100%)':'';tb.style.transition='transform .35s'}});
 // Scroll reveal — immediately show elements already in viewport, observe the rest
 const rvEls=document.querySelectorAll('.rv');
 const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ob.unobserve(e.target)}})},{threshold:0.05,rootMargin:'0px 0px 0px 0px'});
