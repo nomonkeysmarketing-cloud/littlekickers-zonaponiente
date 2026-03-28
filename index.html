@@ -77,11 +77,7 @@ h1 .word.vis{opacity:1;transform:translateY(0)}
 @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}50%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
 .fcta .btn-w{animation:glow 2.5s ease-in-out infinite}
 
-/* Testimonial cards subtle float */
-@keyframes tc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.test-c.vis:nth-child(1){animation:tc-float 5s ease-in-out 0s infinite}
-.test-c.vis:nth-child(2){animation:tc-float 5s ease-in-out .8s infinite}
-.test-c.vis:nth-child(3){animation:tc-float 5s ease-in-out 1.6s infinite}
+/* Testimonial animations handled by marquee */
 
 /* Custom cursor (desktop only) */
 .cursor{position:fixed;width:20px;height:20px;border:2px solid var(--lk-red);border-radius:50%;pointer-events:none;z-index:100000;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s,background .3s;mix-blend-mode:difference;display:none}
@@ -280,22 +276,50 @@ h1 .uy::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:10px
 .sed-cta{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;width:100%;background:var(--lk-red);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;text-decoration:none;border-radius:100px;transition:all .3s;box-shadow:var(--sr)}
 .sed-cta:hover{background:var(--lk-red-dark);transform:translateY(-2px)}
 
-/* ═══ TESTIMONIALS ═══ */
-.test{background:var(--dark);position:relative;overflow:hidden}
+/* ═══ TESTIMONIALS MARQUEE ═══ */
+.test{background:var(--dark);position:relative;overflow:hidden;padding:80px 0}
 .test-d{position:absolute;border-radius:50%;pointer-events:none}
 .test-d1{width:250px;height:250px;background:var(--lk-red);opacity:.05;top:-80px;right:-60px}
 .test-d2{width:150px;height:150px;background:var(--lk-yellow);opacity:.04;bottom:-40px;left:20%}
+.test-header{padding:0 48px;margin-bottom:48px}
 .test .sec-tag{color:var(--lk-yellow)}.test .sec-tag::before{background:var(--lk-yellow)}
 .test .sec-h{color:#fff}
-.test-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;position:relative;z-index:1}
-.test-c{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:var(--rl);padding:32px;transition:all .4s}
-.test-c:hover{background:rgba(255,255,255,.08);transform:translateY(-4px)}
-.test-stars{color:var(--lk-yellow);font-size:15px;letter-spacing:2px;margin-bottom:18px}
-.test-txt{font-size:14px;line-height:1.7;color:rgba(255,255,255,.75);font-style:italic;margin-bottom:22px}
-.test-auth{display:flex;align-items:center;gap:12px}
-.test-av{width:40px;height:40px;border-radius:50%;background:rgba(227,31,38,.2);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--lk-red)}
-.test-nm{font-weight:600;font-size:13px;color:#fff}
-.test-rl{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+@keyframes tMarquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.test-track{display:flex;gap:24px;animation:tMarquee 35s linear infinite;width:max-content;padding:4px 0}
+.test-track:hover{animation-play-state:paused}
+.test-c{width:400px;flex-shrink:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:36px 32px;transition:all .5s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.test-c:hover{transform:translateY(-10px) scale(1.03);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+.test-c::before{content:'';position:absolute;inset:-1px;border-radius:24px;opacity:0;transition:opacity .5s;pointer-events:none}
+.test-c:hover::before{opacity:1}
+.test-c.tc0::before{box-shadow:0 20px 60px rgba(227,31,38,.15)}
+.test-c.tc1::before{box-shadow:0 20px 60px rgba(246,216,9,.1)}
+.test-c.tc2::before{box-shadow:0 20px 60px rgba(0,164,235,.1)}
+.test-q{position:absolute;top:12px;right:20px;font-size:72px;font-family:Georgia,serif;opacity:.06;line-height:1;pointer-events:none}
+.tc0 .test-q{color:#E31F26}.tc1 .test-q{color:#F6D809}.tc2 .test-q{color:#00A4EB}
+.test-stars{display:flex;gap:3px;margin-bottom:20px}
+.test-star{width:18px;height:18px;position:relative}
+.test-star::before{content:'';position:absolute;inset:0;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);background:#F6D809}
+@keyframes t-twinkle{0%,100%{opacity:1}50%{opacity:.6}}
+.test-c:hover .test-star{animation:t-twinkle .4s ease-in-out}
+.test-c:hover .test-star:nth-child(2){animation-delay:.05s}
+.test-c:hover .test-star:nth-child(3){animation-delay:.1s}
+.test-c:hover .test-star:nth-child(4){animation-delay:.15s}
+.test-c:hover .test-star:nth-child(5){animation-delay:.2s}
+.test-txt{font-size:15px;line-height:1.8;color:rgba(255,255,255,.65);font-style:italic;margin-bottom:28px;position:relative;z-index:1}
+.test-div{width:32px;height:2px;border-radius:1px;margin-bottom:20px}
+.tc0 .test-div{background:#E31F26}.tc1 .test-div{background:#F6D809}.tc2 .test-div{background:#00A4EB}
+.test-auth{display:flex;align-items:center;gap:14px}
+.test-av{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;transition:all .4s}
+.tc0 .test-av{background:rgba(227,31,38,.15);color:#E31F26}
+.test-c.tc0:hover .test-av{background:rgba(227,31,38,.25);box-shadow:0 0 0 4px rgba(227,31,38,.15)}
+.tc1 .test-av{background:rgba(246,216,9,.12);color:#F6D809}
+.test-c.tc1:hover .test-av{background:rgba(246,216,9,.2);box-shadow:0 0 0 4px rgba(246,216,9,.12)}
+.tc2 .test-av{background:rgba(0,164,235,.12);color:#00A4EB}
+.test-c.tc2:hover .test-av{background:rgba(0,164,235,.2);box-shadow:0 0 0 4px rgba(0,164,235,.12)}
+.test-nm{font-weight:600;font-size:14px;color:#fff}
+.test-rl{font-size:11px;color:rgba(255,255,255,.3);margin-top:2px}
+.test-sede{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:5px}
+.tc0 .test-sede{color:#E31F26}.tc1 .test-sede{color:#F6D809}.tc2 .test-sede{color:#00A4EB}
 
 /* ═══ FAQ ═══ */
 .faq-in{max-width:800px;margin:0 auto}
@@ -340,7 +364,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:1366px){.hero-sm.p1{left:-15px}.hero-sm.p2{width:120px;height:120px}.hero-fl.f2{left:-15px}}
-@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:48px}.hero-vis{max-width:440px;margin:0 auto}.ben-g{grid-template-columns:repeat(2,1fr)}.phi-grid{grid-template-columns:1fr}.prg-g{grid-template-columns:1fr}.sed-g{grid-template-columns:1fr}.test-g{grid-template-columns:1fr}.ft-g{grid-template-columns:repeat(2,1fr)}.phi-img{max-height:350px}}
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:48px}.hero-vis{max-width:440px;margin:0 auto}.ben-g{grid-template-columns:repeat(2,1fr)}.phi-grid{grid-template-columns:1fr}.prg-g{grid-template-columns:1fr}.sed-g{grid-template-columns:1fr}.ft-g{grid-template-columns:repeat(2,1fr)}.phi-img{max-height:350px}}
 @media(max-width:768px){.prog{background:var(--lk-red);height:4px}.ticker-track{animation-duration:12s}.top-bar{display:none}nav{padding:10px 16px;top:0}.n-links{display:none}.n-cta{display:none}.ham{display:flex}
 /* Mobile animation overrides */
 .rv{transform:translateY(20px);transition-duration:.5s}
@@ -349,7 +373,12 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 .hero-vis.vis{transform:scale(1)}
 .hero-fl{display:none}
 .prg-c.in-vp .prg-img{animation:none}
-.test-c.vis{animation:none!important}
+/* Mobile testimonials — stack vertical */
+.test{padding:48px 0}.test-header{padding:0 20px;margin-bottom:32px}
+.test-track{animation:none;flex-direction:column;gap:16px;width:auto;padding:0 20px}
+.test-c{width:auto}
+.test-c:hover{transform:none}
+.test-c[aria-hidden]{display:none}
 .cursor{display:none!important}
 .phi-img{opacity:0;transform:scale(.96);transition:opacity .6s,transform .6s}
 .phi-img.vis{opacity:1;transform:scale(1)}
@@ -371,7 +400,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 /* Sticky CTA mobile — handled in main mobile block */
 /* Rest of mobile */
 .hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex;padding:14px 20px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
-.sticky .btn-r{width:auto;flex:1;max-width:360px;margin:0 auto;padding:16px 28px;font-size:14px;border-radius:14px}body{padding-bottom:84px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
+.sticky .btn-r{width:auto;flex:1;max-width:360px;margin:0 auto;padding:16px 28px;font-size:14px;border-radius:14px}body{padding-bottom:84px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.sed-g{gap:12px}}
 @media(max-width:480px){h1{font-size:32px;letter-spacing:-.5px}.sec-h{font-size:26px}.phi-img{aspect-ratio:1/1;max-height:250px}.fcta{padding:48px 16px}}
 @media(prefers-reduced-motion:reduce){*,.rv,.hero-badge,.hero-sub,.hero-ctas,.hero-stats,.hero-vis,.hero-fl,.phi-img,.stp-circle,.stp-line-fill{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}.stp-circle{transform:scale(1)!important}.stp-line-fill{width:100%!important}.cursor{display:none!important}}
 </style>
@@ -524,18 +553,19 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 <section class="sec" id="clase">
   <div class="sec-in">
     <div class="sec-tag rv">Cómo es una clase</div>
-    <h2 class="sec-h rv d1">45 minutos de pura magia.</h2>
+    <h2 class="sec-h rv d1">60 minutos de pura magia.</h2>
     <p class="sec-d rv d2">Estructura probada que mantiene a los niños motivados de principio a fin.</p>
     <div class="stp-wrap" id="stpWrap">
       <div class="stp-line"><div class="stp-line-fill"></div></div>
       <div class="stp-g">
-        <div class="stp-c"><div class="stp-time">5 min</div><div class="stp-circle">01</div><div class="stp-c-text"><div class="stp-name">Bienvenida</div><div class="stp-d">Actividades dinámicas que despiertan la energía y preparan el cuerpo.</div></div></div>
+        <div class="stp-c"><div class="stp-time">10 min</div><div class="stp-circle">01</div><div class="stp-c-text"><div class="stp-name">Bienvenida</div><div class="stp-d">Actividades dinámicas que despiertan la energía y preparan el cuerpo.</div></div></div>
         <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">02</div><div class="stp-c-text"><div class="stp-name">Habilidades</div><div class="stp-d">Coordinación, equilibrio y control del balón de forma lúdica.</div></div></div>
         <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">03</div><div class="stp-c-text"><div class="stp-name">Juegos de equipo</div><div class="stp-d">Actividades grupales que fomentan colaboración y respeto.</div></div></div>
-        <div class="stp-c"><div class="stp-time">10 min</div><div class="stp-circle">04</div><div class="stp-c-text"><div class="stp-name">Partido</div><div class="stp-d">En Mighty y Mega, aplican todo en un partido real sin presión.</div></div></div>
+        <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">04</div><div class="stp-c-text"><div class="stp-name">Partido</div><div class="stp-d">En Mighty y Mega, aplican todo en un partido real sin presión.</div></div></div>
         <div class="stp-c"><div class="stp-time">5 min</div><div class="stp-circle">05</div><div class="stp-c-text"><div class="stp-name">Reconocimiento</div><div class="stp-d">Celebramos los logros. Se van con sonrisa y confianza.</div></div></div>
       </div>
     </div>
+    <p class="rv d3" style="font-size:12px;color:var(--lk-dg);margin-top:20px;font-style:italic;">* El tiempo de las clases puede variar dependiendo la edad de los pequeños.</p>
   </div>
 </section>
 
@@ -555,16 +585,19 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="sec test">
+<section class="test">
   <div class="test-d test-d1"></div><div class="test-d test-d2"></div>
-  <div class="sec-in">
+  <div class="test-header">
     <div class="sec-tag rv">Lo que dicen los padres</div>
     <h2 class="sec-h rv d1">Cada familia tiene una historia.</h2>
-    <div class="test-g">
-      <div class="test-c rv"><div class="test-stars">★ ★ ★ ★ ★</div><div class="test-txt">"Mi hijo tenía miedo de socializar. Después de tres semanas ya pide ir al fútbol él solo. El ambiente que generan los coaches es excepcional."</div><div class="test-auth"><div class="test-av">M</div><div><div class="test-nm">Mariana S.</div><div class="test-rl">Mamá de Emilio, 3 años · Interlomas</div></div></div></div>
-      <div class="test-c rv d1"><div class="test-stars">★ ★ ★ ★ ★</div><div class="test-txt">"La metodología realmente funciona. Mi hija aprendió colores, números y a esperar su turno — todo en la cancha. Es mucho más que una clase de fútbol."</div><div class="test-auth"><div class="test-av">R</div><div><div class="test-nm">Rodrigo C.</div><div class="test-rl">Papá de Valentina, 4 años · Santa Fe</div></div></div></div>
-      <div class="test-c rv d2"><div class="test-stars">★ ★ ★ ★ ★</div><div class="test-txt">"Probamos la clase muestra y ya no pudimos parar. Los coaches son increíbles, el nivel de atención es muy alto. Mi hijo ya lleva 8 meses."</div><div class="test-auth"><div class="test-av">A</div><div><div class="test-nm">Alejandra P.</div><div class="test-rl">Mamá de Diego, 5 años · Bosques</div></div></div></div>
-    </div>
+  </div>
+  <div class="test-track">
+    <div class="test-c tc0 rv"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"Mi hijo tenía miedo de socializar. Después de tres semanas ya pide ir al fútbol él solo. El ambiente que generan los coaches es excepcional."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">M</div><div><div class="test-nm">Mariana S.</div><div class="test-rl">Mamá de Emilio, 3 años</div><div class="test-sede">Interlomas</div></div></div></div>
+    <div class="test-c tc1 rv d1"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"La metodología realmente funciona. Mi hija aprendió colores, números y a esperar su turno — todo en la cancha. Es mucho más que una clase de fútbol."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">R</div><div><div class="test-nm">Rodrigo C.</div><div class="test-rl">Papá de Valentina, 4 años</div><div class="test-sede">Santa Fe</div></div></div></div>
+    <div class="test-c tc2 rv d2"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"Probamos la clase muestra y ya no pudimos parar. Los coaches son increíbles, el nivel de atención es muy alto. Mi hijo ya lleva 8 meses."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">A</div><div><div class="test-nm">Alejandra P.</div><div class="test-rl">Mamá de Diego, 5 años</div><div class="test-sede">Bosques</div></div></div></div>
+    <div class="test-c tc0" aria-hidden="true"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"Mi hijo tenía miedo de socializar. Después de tres semanas ya pide ir al fútbol él solo. El ambiente que generan los coaches es excepcional."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">M</div><div><div class="test-nm">Mariana S.</div><div class="test-rl">Mamá de Emilio, 3 años</div><div class="test-sede">Interlomas</div></div></div></div>
+    <div class="test-c tc1" aria-hidden="true"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"La metodología realmente funciona. Mi hija aprendió colores, números y a esperar su turno — todo en la cancha. Es mucho más que una clase de fútbol."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">R</div><div><div class="test-nm">Rodrigo C.</div><div class="test-rl">Papá de Valentina, 4 años</div><div class="test-sede">Santa Fe</div></div></div></div>
+    <div class="test-c tc2" aria-hidden="true"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"Probamos la clase muestra y ya no pudimos parar. Los coaches son increíbles, el nivel de atención es muy alto. Mi hijo ya lleva 8 meses."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">A</div><div><div class="test-nm">Alejandra P.</div><div class="test-rl">Mamá de Diego, 5 años</div><div class="test-sede">Bosques</div></div></div></div>
   </div>
 </section>
 
