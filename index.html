@@ -35,6 +35,73 @@ img{max-width:100%;height:auto;display:block}
 .rv.vis{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
+/* ═══ ANIMATION SYSTEM ═══ */
+/* Hero orchestrated entrance */
+.hero-badge{opacity:0;filter:blur(8px);transform:translateY(12px);transition:opacity .6s,filter .6s,transform .6s;transition-delay:.1s}
+.hero-badge.vis{opacity:1;filter:blur(0);transform:translateY(0)}
+h1 .word{display:inline-block;opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+h1 .word.vis{opacity:1;transform:translateY(0)}
+.hero-sub{opacity:0;transform:translateY(16px);transition:opacity .6s .5s,transform .6s .5s}
+.hero-sub.vis{opacity:1;transform:translateY(0)}
+.hero-ctas{opacity:0;transform:translateY(16px);transition:opacity .5s .65s,transform .5s .65s}
+.hero-ctas.vis{opacity:1;transform:translateY(0)}
+.hero-stats{opacity:0;transform:translateY(12px);transition:opacity .5s .8s,transform .5s .8s}
+.hero-stats.vis{opacity:1;transform:translateY(0)}
+.hero-vis{opacity:0;transform:scale(.88);transition:opacity .8s .2s cubic-bezier(.16,1,.3,1),transform .8s .2s cubic-bezier(.34,1.56,.64,1)}
+.hero-vis.vis{opacity:1;transform:scale(1)}
+/* Floating cards entrance */
+.hero-fl{opacity:0;transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.hero-fl.f1{transform:translate(30px,-20px);transition-delay:.9s}
+.hero-fl.f2{transform:translate(-30px,20px);transition-delay:1.1s}
+.hero-fl.vis{opacity:1;transform:translate(0,0)}
+.hero-fl.vis.f1,.hero-fl.vis.f2{animation:fl 4s ease-in-out 1.5s infinite}
+.hero-fl.vis.f2{animation-delay:2.5s}
+
+/* Benefit card image zoom on hover */
+.ben-img{transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.ben-c:hover .ben-img{transform:scale(1.06)}
+
+/* Philosophy clip-path reveal */
+.phi-img{clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.16,1,.3,1)}
+.phi-img.vis{clip-path:inset(0 0 0 0)}
+
+/* Program card Ken Burns */
+@keyframes kb{0%{transform:scale(1) translate(0,0)}50%{transform:scale(1.06) translate(-1%,-1%)}100%{transform:scale(1) translate(0,0)}}
+.prg-img{transition:transform .5s}
+.prg-c.in-vp .prg-img{animation:kb 12s ease-in-out infinite}
+.prg-c:hover .prg-img{animation-play-state:paused;transform:scale(1.04)}
+
+/* Step number bounce */
+@keyframes stp-pop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+.stp-n{opacity:0}
+.stp-c.vis .stp-n{animation:stp-pop .5s cubic-bezier(.34,1.56,.64,1) forwards}
+.stp-c.vis:nth-child(2) .stp-n{animation-delay:.1s}
+.stp-c.vis:nth-child(3) .stp-n{animation-delay:.2s}
+.stp-c.vis:nth-child(4) .stp-n{animation-delay:.3s}
+.stp-c.vis:nth-child(5) .stp-n{animation-delay:.4s}
+
+/* CTA pulse glow */
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}50%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
+.fcta .btn-w{animation:glow 2.5s ease-in-out infinite}
+
+/* Testimonial cards subtle float */
+@keyframes tc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.test-c.vis:nth-child(1){animation:tc-float 5s ease-in-out 0s infinite}
+.test-c.vis:nth-child(2){animation:tc-float 5s ease-in-out .8s infinite}
+.test-c.vis:nth-child(3){animation:tc-float 5s ease-in-out 1.6s infinite}
+
+/* Custom cursor (desktop only) */
+.cursor{position:fixed;width:20px;height:20px;border:2px solid var(--lk-red);border-radius:50%;pointer-events:none;z-index:100000;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s,background .3s;mix-blend-mode:difference;display:none}
+.cursor.active{width:44px;height:44px;border-color:var(--lk-yellow);background:rgba(246,216,9,.1)}
+
+/* Progress bar glow */
+.prog{box-shadow:0 0 8px rgba(255,255,255,.4);transition:width .05s linear}
+
+/* Map shimmer loader */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.sed-map{background:linear-gradient(90deg,var(--cream) 25%,#f0e8d8 50%,var(--cream) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+.sed-map iframe{position:relative;z-index:1}
+
 /* Progress */
 .prog{position:fixed;top:0;left:0;height:3px;background:#fff;z-index:10001;border-radius:0 2px 2px 0}
 
@@ -101,10 +168,10 @@ h1 .uy::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:10px
 .hero-sm{position:absolute;width:170px;height:170px;object-fit:cover;border-radius:16px;box-shadow:var(--sl);border:4px solid #fff;z-index:3}
 .hero-sm.p1{bottom:-10px;left:-30px}
 .hero-sm.p2{top:50px;right:5%;border-radius:50%;width:140px;height:140px}
-.hero-fl{position:absolute;z-index:4;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--sl);display:flex;align-items:center;gap:10px;animation:fl 4s ease-in-out infinite}
+.hero-fl{position:absolute;z-index:4;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--sl);display:flex;align-items:center;gap:10px}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.hero-fl.f1{top:10px;right:8%;animation-delay:.5s}
-.hero-fl.f2{bottom:50px;left:-30px;animation-delay:1.5s}
+.hero-fl.f1{top:10px;right:8%}
+.hero-fl.f2{bottom:50px;left:-30px}
 .fl-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
 .fl-t{font-size:13px;font-weight:700;color:var(--dark);line-height:1.2}
 .fl-s{font-size:11px;color:var(--lk-dg)}
@@ -259,8 +326,20 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:1366px){.hero-sm.p1{left:-15px}.hero-sm.p2{width:120px;height:120px}.hero-fl.f2{left:-15px}}
 @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:48px}.hero-vis{max-width:440px;margin:0 auto}.ben-g{grid-template-columns:repeat(2,1fr)}.phi-grid{grid-template-columns:1fr}.prg-g{grid-template-columns:1fr}.stp-g{grid-template-columns:repeat(3,1fr)}.sed-g{grid-template-columns:1fr}.test-g{grid-template-columns:1fr}.ft-g{grid-template-columns:repeat(2,1fr)}.phi-img{max-height:350px}}
-@media(max-width:768px){.prog{background:var(--lk-red);height:4px}.ticker-track{animation-duration:12s}.top-bar{display:none}nav{padding:10px 16px;top:0}.n-links{display:none}.n-cta{display:none}.ham{display:flex}.sec{padding:48px 20px}.hero{padding:80px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}.stp-g{grid-template-columns:1fr}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
+@media(max-width:768px){.prog{background:var(--lk-red);height:4px}.ticker-track{animation-duration:12s}.top-bar{display:none}nav{padding:10px 16px;top:0}.n-links{display:none}.n-cta{display:none}.ham{display:flex}
+/* Mobile animation overrides */
+.rv{transform:translateY(20px);transition-duration:.5s}
+.d1,.d2,.d3,.d4,.d5{transition-delay:0s}
+.hero-vis{transform:scale(.95);transition-delay:.15s}
+.hero-vis.vis{transform:scale(1)}
+.hero-fl{display:none}
+.prg-c.in-vp .prg-img{animation:none}
+.test-c.vis{animation:none!important}
+.cursor{display:none!important}
+.phi-img{clip-path:none;opacity:0;transform:scale(.96);transition:opacity .6s,transform .6s}
+.phi-img.vis{opacity:1;transform:scale(1)}.sec{padding:48px 20px}.hero{padding:80px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}.stp-g{grid-template-columns:1fr}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
 @media(max-width:480px){h1{font-size:32px;letter-spacing:-.5px}.sec-h{font-size:26px}.phi-img{aspect-ratio:1/1;max-height:250px}.fcta{padding:48px 16px}}
+@media(prefers-reduced-motion:reduce){*,.rv,.hero-badge,.hero-sub,.hero-ctas,.hero-stats,.hero-vis,.hero-fl,.phi-img,.stp-n{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}.cursor{display:none!important}}
 </style>
 </head>
 <body>
@@ -305,20 +384,20 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
   <div class="hero-circles"><div class="hc hc1"></div><div class="hc hc2"></div><div class="hc hc3"></div><div class="hc hc4"></div></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-badge rv"><div class="hero-dot"></div>Metodología Internacional · 26 Países</div>
-      <h1 class="rv d1"><span class="red">Play not Push</span><br>Donde el fútbol empieza con <span class="uy">confianza.</span></h1>
-      <p class="hero-sub rv d2">Clases para niños de 18 meses a 8 años en Interlomas, Santa Fe, Cuajimalpa y Chapultepec. Un método diseñado para que aprender sea parte del juego.</p>
-      <div class="hero-ctas rv d3">
+      <div class="hero-badge"><div class="hero-dot"></div>Metodología Internacional · 26 Países</div>
+      <h1><span class="red">Play not Push</span><br>Donde el fútbol empieza con <span class="uy">confianza.</span></h1>
+      <p class="hero-sub">Clases para niños de 18 meses a 8 años en Interlomas, Santa Fe, Cuajimalpa y Chapultepec. Un método diseñado para que aprender sea parte del juego.</p>
+      <div class="hero-ctas">
         <a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20agendar%20una%20clase%20muestra%20gratis%20para%20mi%20hijo%20en%20Little%20Kickers%20Zona%20Poniente." class="btn-r" target="_blank" rel="noopener">Agendar clase muestra gratis →</a>
         <a href="#programas" class="btn-o">Ver programas</a>
       </div>
-      <div class="hero-stats rv d4">
+      <div class="hero-stats">
         <div><div class="hs-v">+80K</div><div class="hs-l">Niños / semana</div></div>
         <div><div class="hs-v">320+</div><div class="hs-l">Franquicias</div></div>
         <div><div class="hs-v">23</div><div class="hs-l">Años</div></div>
       </div>
     </div>
-    <div class="hero-vis rv d2">
+    <div class="hero-vis">
       <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="images/hero-celebration.webp" width="500" height="625">
         <source src="images/hero-video.mp4" type="video/mp4">
         <img src="images/hero-celebration.webp" alt="Little Kickers en acción" class="hero-img" width="500" height="625">
@@ -494,22 +573,152 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 <div class="sticky"><a href="https://wa.me/5215565352797?text=Hola%2C%20me%20interesa%20agendar%20una%20clase%20muestra%20gratis." class="btn-r" target="_blank" rel="noopener">Agendar clase muestra gratis →</a></div>
 
 <script>
-window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
-const nv=document.getElementById('nav');const tb=document.getElementById('topbar');window.addEventListener('scroll',()=>{const s=scrollY>50;nv.classList.toggle('scrolled',s);if(tb&&window.innerWidth>768){tb.style.transform=s?'translateY(-100%)':'';tb.style.transition='transform .35s'}});
-// Scroll reveal — immediately show elements already in viewport, observe the rest
-const rvEls=document.querySelectorAll('.rv');
-const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ob.unobserve(e.target)}})},{threshold:0.05,rootMargin:'0px 0px 0px 0px'});
-rvEls.forEach(el=>{
+(function(){
+const isMob=window.innerWidth<=768;
+const noMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ═══ PROGRESS BAR ═══ */
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'},{passive:true});
+
+/* ═══ NAV SCROLL ═══ */
+const nv=document.getElementById('nav'),tb=document.getElementById('topbar');
+let lastY=0;
+window.addEventListener('scroll',()=>{const s=scrollY>50;nv.classList.toggle('scrolled',s);if(tb&&!isMob){tb.style.transform=s?'translateY(-100%)':'';tb.style.transition='transform .35s'}lastY=scrollY},{passive:true});
+
+/* ═══ HERO ORCHESTRATION ═══ */
+// Word-by-word reveal for h1
+const h1=document.querySelector('h1');
+if(h1&&!noMotion){
+  const html=h1.innerHTML;
+  // Split by <br> and <span> tags, wrap individual words
+  const parts=html.split(/(<br\s*\/?>|<span[^>]*>|<\/span>)/g);
+  let wordIdx=0;
+  const rebuilt=parts.map(p=>{
+    if(p.match(/^</)|| p.match(/^$/)) return p;
+    return p.split(/(\s+)/g).map(w=>{
+      if(w.match(/^\s*$/)) return w;
+      return `<span class="word" style="transition-delay:${.25+wordIdx++*.04}s">${w}</span>`;
+    }).join('');
+  }).join('');
+  h1.innerHTML=rebuilt;
+}
+
+// Trigger hero elements on load
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.querySelectorAll('.hero-badge,.hero-sub,.hero-ctas,.hero-stats,.hero-vis,.hero-fl').forEach(el=>el.classList.add('vis'));
+    document.querySelectorAll('h1 .word').forEach(w=>w.classList.add('vis'));
+  },100);
+});
+
+/* ═══ SCROLL REVEAL ═══ */
+const rvOb=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rvOb.unobserve(e.target)}})},{threshold:isMob?.02:.05});
+document.querySelectorAll('.rv').forEach(el=>{
   const r=el.getBoundingClientRect();
   if(r.top<window.innerHeight&&r.bottom>0){el.classList.add('vis')}
-  else{ob.observe(el)}
+  else{rvOb.observe(el)}
 });
-function tFaq(el){const it=el.closest('.faq-item'),w=it.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!w)it.classList.add('open')}
-function toggleMenu(){document.getElementById('mob').classList.toggle('open');document.getElementById('ham').classList.toggle('open')}
+
+/* ═══ PHILOSOPHY IMAGE CLIP REVEAL ═══ */
+const phiImg=document.querySelector('.phi-img');
+if(phiImg){
+  const phiOb=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');phiOb.unobserve(e.target)}})},{threshold:.15});
+  phiOb.observe(phiImg);
+}
+
+/* ═══ STEP NUMBER BOUNCE ═══ */
+const stpOb=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');stpOb.unobserve(e.target)}})},{threshold:.2});
+document.querySelectorAll('.stp-c').forEach(el=>stpOb.observe(el));
+
+/* ═══ COUNT-UP ANIMATION ═══ */
+function countUp(el,target,duration){
+  const start=performance.now();
+  const isFloat=String(target).includes('.');
+  function tick(now){
+    const p=Math.min((now-start)/duration,1);
+    const ease=1-Math.pow(1-p,3);
+    const val=ease*target;
+    el.textContent=isFloat?val.toFixed(1):Math.floor(val);
+    if(p<1)requestAnimationFrame(tick);
+    else el.textContent=isFloat?target.toFixed(1):target;
+  }
+  requestAnimationFrame(tick);
+}
+// Count-up hero stats
+const hsOb=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+  const v=e.target.querySelector('.hs-v');
+  if(v&&!v.dataset.counted){
+    v.dataset.counted='1';
+    const txt=v.textContent;
+    const num=parseFloat(txt.replace(/[^0-9.]/g,''));
+    const prefix=txt.match(/^[^0-9]*/)[0];
+    const suffix=txt.match(/[^0-9.]*$/)[0];
+    countUp({set textContent(val){v.textContent=prefix+val+suffix}},num,1200);
+  }
+  hsOb.unobserve(e.target);
+}})},{threshold:.5});
+document.querySelectorAll('.hero-stats > div').forEach(el=>hsOb.observe(el));
+
+// Count-up philosophy stats
+const phiStOb=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+  const n=e.target.querySelector('.phi-st-n');
+  if(n&&!n.dataset.counted){
+    n.dataset.counted='1';
+    const target=parseInt(n.textContent);
+    countUp({set textContent(val){n.textContent=val}},target,1000);
+  }
+  phiStOb.unobserve(e.target);
+}})},{threshold:.5});
+document.querySelectorAll('.phi-st').forEach(el=>phiStOb.observe(el));
+
+/* ═══ KEN BURNS — PROGRAM CARDS (DESKTOP ONLY) ═══ */
+if(!isMob&&!noMotion){
+  const kbOb=new IntersectionObserver(es=>{es.forEach(e=>{e.target.classList.toggle('in-vp',e.isIntersecting)})},{threshold:.1});
+  document.querySelectorAll('.prg-c').forEach(el=>kbOb.observe(el));
+}
+
+/* ═══ TICKER PARALLAX (DESKTOP ONLY) ═══ */
+if(!isMob&&!noMotion){
+  const ticker=document.querySelector('.ticker-track');
+  if(ticker){
+    let tickerBase=0;
+    window.addEventListener('scroll',()=>{
+      tickerBase=scrollY*.03;
+      ticker.style.transform=`translateX(${-tickerBase}px)`;
+    },{passive:true});
+  }
+}
+
+/* ═══ CUSTOM CURSOR (DESKTOP + FINE POINTER ONLY) ═══ */
+if(!isMob&&!noMotion&&window.matchMedia('(pointer:fine)').matches){
+  const cur=document.createElement('div');
+  cur.className='cursor';
+  document.body.appendChild(cur);
+  cur.style.display='block';
+  let cx=0,cy=0,tx=0,ty=0;
+  document.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY});
+  (function loop(){cx+=(tx-cx)*.15;cy+=(ty-cy)*.15;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button,.ham,.faq-q,.btn-r,.btn-o,.btn-w,.n-cta,.prg-cta,.sed-cta').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('active'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('active'));
+  });
+}
+
+/* ═══ FAQ ═══ */
+window.tFaq=function(el){const it=el.closest('.faq-item'),w=it.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!w)it.classList.add('open')};
+
+/* ═══ MOBILE MENU ═══ */
+window.toggleMenu=function(){document.getElementById('mob').classList.toggle('open');document.getElementById('ham').classList.toggle('open')};
+
+/* ═══ SMOOTH SCROLL ═══ */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
-// Video autoplay — force play with muted attribute
+
+/* ═══ VIDEO AUTOPLAY ═══ */
 const hv=document.querySelector('.hero-vid');
-if(hv){hv.muted=true;hv.play().catch(()=>{document.addEventListener('touchstart',()=>{hv.muted=true;hv.play()},{once:true});document.addEventListener('click',()=>{hv.muted=true;hv.play()},{once:true})});}
+if(hv){hv.muted=true;hv.play().catch(()=>{document.addEventListener('touchstart',()=>{hv.muted=true;hv.play()},{once:true});document.addEventListener('click',()=>{hv.muted=true;hv.play()},{once:true})})}
+
+})();
 </script>
 </body>
 </html>
