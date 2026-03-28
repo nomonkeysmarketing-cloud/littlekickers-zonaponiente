@@ -277,7 +277,8 @@ h1 .uy::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:10px
 .sed-cta:hover{background:var(--lk-red-dark);transform:translateY(-2px)}
 
 /* ═══ TESTIMONIALS MARQUEE ═══ */
-.test{background:var(--dark);position:relative;overflow:hidden;padding:80px 0;max-width:100vw}
+.test{background:var(--dark);position:relative;padding:80px 0}
+.test-overflow{overflow:hidden;width:100%;position:relative}
 .test-d{position:absolute;border-radius:50%;pointer-events:none}
 .test-d1{width:250px;height:250px;background:var(--lk-red);opacity:.05;top:-80px;right:-60px}
 .test-d2{width:150px;height:150px;background:var(--lk-yellow);opacity:.04;bottom:-40px;left:20%}
@@ -375,6 +376,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 .prg-c.in-vp .prg-img{animation:none}
 /* Mobile testimonials — stack vertical */
 .test{padding:48px 0}.test-header{padding:0 20px;margin-bottom:32px}
+.test-overflow{overflow:visible}
 .test-track{animation:none;flex-direction:column;gap:16px;width:auto;padding:0 20px}
 .test-c{width:auto}
 .test-c:hover{transform:none}
@@ -591,6 +593,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
     <div class="sec-tag rv">Lo que dicen los padres</div>
     <h2 class="sec-h rv d1">Cada familia tiene una historia.</h2>
   </div>
+  <div class="test-overflow">
   <div class="test-track">
     <div class="test-c tc0 rv"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"Mi hijo tenía miedo de socializar. Después de tres semanas ya pide ir al fútbol él solo. El ambiente que generan los coaches es excepcional."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">M</div><div><div class="test-nm">Mariana S.</div><div class="test-rl">Mamá de Emilio, 3 años</div><div class="test-sede">Interlomas</div></div></div></div>
     <div class="test-c tc1 rv d1"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"La metodología realmente funciona. Mi hija aprendió colores, números y a esperar su turno — todo en la cancha. Es mucho más que una clase de fútbol."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">R</div><div><div class="test-nm">Rodrigo C.</div><div class="test-rl">Papá de Valentina, 4 años</div><div class="test-sede">Santa Fe</div></div></div></div>
@@ -598,6 +601,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
     <div class="test-c tc0" aria-hidden="true"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"Mi hijo tenía miedo de socializar. Después de tres semanas ya pide ir al fútbol él solo. El ambiente que generan los coaches es excepcional."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">M</div><div><div class="test-nm">Mariana S.</div><div class="test-rl">Mamá de Emilio, 3 años</div><div class="test-sede">Interlomas</div></div></div></div>
     <div class="test-c tc1" aria-hidden="true"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"La metodología realmente funciona. Mi hija aprendió colores, números y a esperar su turno — todo en la cancha. Es mucho más que una clase de fútbol."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">R</div><div><div class="test-nm">Rodrigo C.</div><div class="test-rl">Papá de Valentina, 4 años</div><div class="test-sede">Santa Fe</div></div></div></div>
     <div class="test-c tc2" aria-hidden="true"><div class="test-q">"</div><div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div><div class="test-txt">"Probamos la clase muestra y ya no pudimos parar. Los coaches son increíbles, el nivel de atención es muy alto. Mi hijo ya lleva 8 meses."</div><div class="test-div"></div><div class="test-auth"><div class="test-av">A</div><div><div class="test-nm">Alejandra P.</div><div class="test-rl">Mamá de Diego, 5 años</div><div class="test-sede">Bosques</div></div></div></div>
+  </div>
   </div>
 </section>
 
