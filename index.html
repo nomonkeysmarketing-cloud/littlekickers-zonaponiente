@@ -258,6 +258,7 @@ h1 .uy::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:10px
 .stp-c:nth-child(4) .stp-circle{background:#6CC351}.stp-c:nth-child(4) .stp-circle::after{border-color:#6CC351}
 .stp-c:nth-child(5) .stp-circle{background:#732472}.stp-c:nth-child(5) .stp-circle::after{border-color:#732472}
 .stp-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--dark);margin-bottom:6px}
+.stp-c-text{display:contents}
 .stp-d{font-size:12px;line-height:1.55;color:var(--lk-dg);max-width:130px}
 
 /* ═══ SEDES ═══ */
@@ -351,7 +352,26 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 .test-c.vis{animation:none!important}
 .cursor{display:none!important}
 .phi-img{opacity:0;transform:scale(.96);transition:opacity .6s,transform .6s}
-.phi-img.vis{opacity:1;transform:scale(1)}.sec{padding:48px 20px}.hero{padding:80px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}.stp-g{flex-direction:column;align-items:stretch;gap:20px}.stp-wrap{padding:0}.stp-line{display:none}.stp-c{flex-direction:row;text-align:left;gap:16px}.stp-circle{flex-shrink:0;width:44px;height:44px;font-size:16px;transform:scale(1)!important}.stp-time{margin-bottom:0;margin-right:8px;align-self:flex-start}.stp-d{max-width:100%}.stp-circle::after{display:none}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
+.phi-img.vis{opacity:1;transform:scale(1)}
+/* Mobile sections */
+.sec{padding:48px 20px}.hero{padding:80px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}
+/* Mobile steps — vertical timeline with connector */
+.stp-wrap{padding:0}
+.stp-line{display:none}
+.stp-g{flex-direction:column;align-items:stretch;gap:0;position:relative;padding-left:32px}
+.stp-g::before{content:'';position:absolute;left:21px;top:28px;bottom:28px;width:3px;border-radius:2px;background:linear-gradient(to bottom,#E31F26,#F6D809,#00A4EB,#6CC351,#732472)}
+.stp-c{flex-direction:row;text-align:left;gap:14px;align-items:flex-start;padding:16px 0;position:relative}
+.stp-circle{flex-shrink:0;width:44px;height:44px;font-size:15px;transform:scale(1)!important;margin-bottom:0;box-shadow:0 0 0 4px #fff}
+.stp-circle::after{display:none}
+.stp-time{margin-bottom:0;position:absolute;right:0;top:18px}
+.stp-c-text{display:block;flex:1;padding-right:70px}
+.stp-name{font-size:16px;margin-bottom:2px}
+.stp-d{max-width:100%;font-size:13px;line-height:1.5}
+/* Sticky CTA breathing */
+.sticky{padding:12px 24px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.sticky .btn-r{width:100%;justify-content:center;max-width:400px;padding:14px 24px;font-size:14px;border-radius:16px;margin:0 auto}
+/* Rest of mobile */
+.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:80px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
 @media(max-width:480px){h1{font-size:32px;letter-spacing:-.5px}.sec-h{font-size:26px}.phi-img{aspect-ratio:1/1;max-height:250px}.fcta{padding:48px 16px}}
 @media(prefers-reduced-motion:reduce){*,.rv,.hero-badge,.hero-sub,.hero-ctas,.hero-stats,.hero-vis,.hero-fl,.phi-img,.stp-circle,.stp-line-fill{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}.stp-circle{transform:scale(1)!important}.stp-line-fill{width:100%!important}.cursor{display:none!important}}
 </style>
@@ -509,11 +529,11 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
     <div class="stp-wrap" id="stpWrap">
       <div class="stp-line"><div class="stp-line-fill"></div></div>
       <div class="stp-g">
-        <div class="stp-c"><div class="stp-time">5 min</div><div class="stp-circle">01</div><div class="stp-name">Bienvenida</div><div class="stp-d">Actividades dinámicas que despiertan la energía y preparan el cuerpo.</div></div>
-        <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">02</div><div class="stp-name">Habilidades</div><div class="stp-d">Coordinación, equilibrio y control del balón de forma lúdica.</div></div>
-        <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">03</div><div class="stp-name">Juegos de equipo</div><div class="stp-d">Actividades grupales que fomentan colaboración y respeto.</div></div>
-        <div class="stp-c"><div class="stp-time">10 min</div><div class="stp-circle">04</div><div class="stp-name">Partido</div><div class="stp-d">En Mighty y Mega, aplican todo en un partido real sin presión.</div></div>
-        <div class="stp-c"><div class="stp-time">5 min</div><div class="stp-circle">05</div><div class="stp-name">Reconocimiento</div><div class="stp-d">Celebramos los logros. Se van con sonrisa y confianza.</div></div>
+        <div class="stp-c"><div class="stp-time">5 min</div><div class="stp-circle">01</div><div class="stp-c-text"><div class="stp-name">Bienvenida</div><div class="stp-d">Actividades dinámicas que despiertan la energía y preparan el cuerpo.</div></div></div>
+        <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">02</div><div class="stp-c-text"><div class="stp-name">Habilidades</div><div class="stp-d">Coordinación, equilibrio y control del balón de forma lúdica.</div></div></div>
+        <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">03</div><div class="stp-c-text"><div class="stp-name">Juegos de equipo</div><div class="stp-d">Actividades grupales que fomentan colaboración y respeto.</div></div></div>
+        <div class="stp-c"><div class="stp-time">10 min</div><div class="stp-circle">04</div><div class="stp-c-text"><div class="stp-name">Partido</div><div class="stp-d">En Mighty y Mega, aplican todo en un partido real sin presión.</div></div></div>
+        <div class="stp-c"><div class="stp-time">5 min</div><div class="stp-circle">05</div><div class="stp-c-text"><div class="stp-name">Reconocimiento</div><div class="stp-d">Celebramos los logros. Se van con sonrisa y confianza.</div></div></div>
       </div>
     </div>
   </div>
