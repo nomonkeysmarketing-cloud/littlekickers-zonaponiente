@@ -71,14 +71,7 @@ h1 .word.vis{opacity:1;transform:translateY(0)}
 .prg-c.in-vp .prg-img{animation:kb 12s ease-in-out infinite}
 .prg-c:hover .prg-img{animation-play-state:paused;transform:scale(1.04)}
 
-/* Step number bounce */
-@keyframes stp-pop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
-.stp-n{opacity:0}
-.stp-c.vis .stp-n{animation:stp-pop .5s cubic-bezier(.34,1.56,.64,1) forwards}
-.stp-c.vis:nth-child(2) .stp-n{animation-delay:.1s}
-.stp-c.vis:nth-child(3) .stp-n{animation-delay:.2s}
-.stp-c.vis:nth-child(4) .stp-n{animation-delay:.3s}
-.stp-c.vis:nth-child(5) .stp-n{animation-delay:.4s}
+/* Step number — handled by timeline now */
 
 /* CTA pulse glow */
 @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}50%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
@@ -238,13 +231,34 @@ h1 .uy::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:10px
 .prg-cta{margin-top:20px;display:inline-flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;color:var(--lk-red);text-decoration:none;transition:gap .3s}
 .prg-cta:hover{gap:12px}
 
-/* ═══ STEPS ═══ */
-.stp-g{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:56px}
-.stp-c{background:var(--off);border-radius:var(--rl);padding:32px 24px;text-align:center;border:1px solid rgba(0,0,0,.03);transition:all .4s}
-.stp-c:hover{transform:translateY(-4px);box-shadow:var(--ss)}
-.stp-n{font-family:'Nunito',sans-serif;font-weight:900;font-size:42px;color:rgba(227,31,38,.08);line-height:1;margin-bottom:14px}
-.stp-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;color:var(--dark);margin-bottom:10px}
-.stp-d{font-size:13px;line-height:1.6;color:var(--lk-dg)}
+/* ═══ STEPS TIMELINE ═══ */
+.stp-wrap{position:relative;margin-top:56px;padding:0 20px}
+.stp-line{position:absolute;top:28px;left:10%;right:10%;height:3px;background:rgba(0,0,0,.06);border-radius:2px;z-index:0}
+.stp-line-fill{height:100%;width:0;border-radius:2px;background:linear-gradient(90deg,#E31F26,#F6D809,#00A4EB,#6CC351,#732472);transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+.stp-wrap.vis .stp-line-fill{width:100%}
+.stp-g{display:flex;gap:0;position:relative;z-index:1}
+.stp-c{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center}
+.stp-time{font-family:'Nunito',sans-serif;font-weight:800;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:8px}
+.stp-c:nth-child(1) .stp-time{background:var(--rp);color:#E31F26}
+.stp-c:nth-child(2) .stp-time{background:var(--yp);color:#8B6914}
+.stp-c:nth-child(3) .stp-time{background:var(--bp);color:#007DB3}
+.stp-c:nth-child(4) .stp-time{background:var(--gp);color:#55a739}
+.stp-c:nth-child(5) .stp-time{background:#F3EDF3;color:#732472}
+.stp-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:20px;color:#fff;margin-bottom:14px;position:relative;transform:scale(0);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.stp-circle::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:2px solid;opacity:.2;animation:stp-ring 2.5s ease-in-out infinite}
+@keyframes stp-ring{0%,100%{transform:scale(1);opacity:.2}50%{transform:scale(1.15);opacity:.05}}
+.stp-wrap.vis .stp-c:nth-child(1) .stp-circle{transform:scale(1);transition-delay:.1s}
+.stp-wrap.vis .stp-c:nth-child(2) .stp-circle{transform:scale(1);transition-delay:.3s}
+.stp-wrap.vis .stp-c:nth-child(3) .stp-circle{transform:scale(1);transition-delay:.5s}
+.stp-wrap.vis .stp-c:nth-child(4) .stp-circle{transform:scale(1);transition-delay:.7s}
+.stp-wrap.vis .stp-c:nth-child(5) .stp-circle{transform:scale(1);transition-delay:.9s}
+.stp-c:nth-child(1) .stp-circle{background:#E31F26}.stp-c:nth-child(1) .stp-circle::after{border-color:#E31F26}
+.stp-c:nth-child(2) .stp-circle{background:#F6D809;color:#412402}.stp-c:nth-child(2) .stp-circle::after{border-color:#F6D809}
+.stp-c:nth-child(3) .stp-circle{background:#00A4EB}.stp-c:nth-child(3) .stp-circle::after{border-color:#00A4EB}
+.stp-c:nth-child(4) .stp-circle{background:#6CC351}.stp-c:nth-child(4) .stp-circle::after{border-color:#6CC351}
+.stp-c:nth-child(5) .stp-circle{background:#732472}.stp-c:nth-child(5) .stp-circle::after{border-color:#732472}
+.stp-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--dark);margin-bottom:6px}
+.stp-d{font-size:12px;line-height:1.55;color:var(--lk-dg);max-width:130px}
 
 /* ═══ SEDES ═══ */
 .sed{background:var(--off)}
@@ -325,7 +339,7 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:1366px){.hero-sm.p1{left:-15px}.hero-sm.p2{width:120px;height:120px}.hero-fl.f2{left:-15px}}
-@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:48px}.hero-vis{max-width:440px;margin:0 auto}.ben-g{grid-template-columns:repeat(2,1fr)}.phi-grid{grid-template-columns:1fr}.prg-g{grid-template-columns:1fr}.stp-g{grid-template-columns:repeat(3,1fr)}.sed-g{grid-template-columns:1fr}.test-g{grid-template-columns:1fr}.ft-g{grid-template-columns:repeat(2,1fr)}.phi-img{max-height:350px}}
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:48px}.hero-vis{max-width:440px;margin:0 auto}.ben-g{grid-template-columns:repeat(2,1fr)}.phi-grid{grid-template-columns:1fr}.prg-g{grid-template-columns:1fr}.sed-g{grid-template-columns:1fr}.test-g{grid-template-columns:1fr}.ft-g{grid-template-columns:repeat(2,1fr)}.phi-img{max-height:350px}}
 @media(max-width:768px){.prog{background:var(--lk-red);height:4px}.ticker-track{animation-duration:12s}.top-bar{display:none}nav{padding:10px 16px;top:0}.n-links{display:none}.n-cta{display:none}.ham{display:flex}
 /* Mobile animation overrides */
 .rv{transform:translateY(20px);transition-duration:.5s}
@@ -337,9 +351,9 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
 .test-c.vis{animation:none!important}
 .cursor{display:none!important}
 .phi-img{opacity:0;transform:scale(.96);transition:opacity .6s,transform .6s}
-.phi-img.vis{opacity:1;transform:scale(1)}.sec{padding:48px 20px}.hero{padding:80px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}.stp-g{grid-template-columns:1fr}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
+.phi-img.vis{opacity:1;transform:scale(1)}.sec{padding:48px 20px}.hero{padding:80px 20px 40px}.ben-g{grid-template-columns:1fr}.ben-img{height:140px}.stp-g{flex-direction:column;align-items:stretch;gap:20px}.stp-wrap{padding:0}.stp-line{display:none}.stp-c{flex-direction:row;text-align:left;gap:16px}.stp-circle{flex-shrink:0;width:44px;height:44px;font-size:16px;transform:scale(1)!important}.stp-time{margin-bottom:0;margin-right:8px;align-self:flex-start}.stp-d{max-width:100%}.stp-circle::after{display:none}.hero-stats{gap:20px;flex-wrap:wrap}.hero-sm,.hero-fl{display:none}.sticky{display:flex}body{padding-bottom:72px}footer{padding:40px 20px 20px}.ft-g{grid-template-columns:1fr;gap:28px}.phi-feats{grid-template-columns:1fr}.phi-stats{grid-template-columns:1fr 1fr}.phi-img{aspect-ratio:4/3;max-height:280px}.phi-grid{gap:28px}.prg-img{height:180px}.hero-vid{aspect-ratio:3/4;max-height:400px}.fcta{padding:56px 20px}.test-g{gap:12px}.sed-g{gap:12px}}
 @media(max-width:480px){h1{font-size:32px;letter-spacing:-.5px}.sec-h{font-size:26px}.phi-img{aspect-ratio:1/1;max-height:250px}.fcta{padding:48px 16px}}
-@media(prefers-reduced-motion:reduce){*,.rv,.hero-badge,.hero-sub,.hero-ctas,.hero-stats,.hero-vis,.hero-fl,.phi-img,.stp-n{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}.cursor{display:none!important}}
+@media(prefers-reduced-motion:reduce){*,.rv,.hero-badge,.hero-sub,.hero-ctas,.hero-stats,.hero-vis,.hero-fl,.phi-img,.stp-circle,.stp-line-fill{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}.stp-circle{transform:scale(1)!important}.stp-line-fill{width:100%!important}.cursor{display:none!important}}
 </style>
 </head>
 <body>
@@ -492,12 +506,15 @@ footer{padding:56px 48px 28px;background:var(--dark);border-top:3px solid var(--
     <div class="sec-tag rv">Cómo es una clase</div>
     <h2 class="sec-h rv d1">45 minutos de pura magia.</h2>
     <p class="sec-d rv d2">Estructura probada que mantiene a los niños motivados de principio a fin.</p>
-    <div class="stp-g">
-      <div class="stp-c rv"><div class="stp-n">01</div><div class="stp-name">Bienvenida</div><div class="stp-d">Actividades dinámicas que despiertan la energía y preparan el cuerpo.</div></div>
-      <div class="stp-c rv d1"><div class="stp-n">02</div><div class="stp-name">Habilidades</div><div class="stp-d">Ejercicios de coordinación, equilibrio y control del balón de forma lúdica.</div></div>
-      <div class="stp-c rv d2"><div class="stp-n">03</div><div class="stp-name">Juegos de equipo</div><div class="stp-d">Actividades grupales que fomentan colaboración y respeto.</div></div>
-      <div class="stp-c rv d3"><div class="stp-n">04</div><div class="stp-name">Partido</div><div class="stp-d">En Mighty y Mega, aplican todo en un partido real sin presión.</div></div>
-      <div class="stp-c rv d4"><div class="stp-n">05</div><div class="stp-name">Reconocimiento</div><div class="stp-d">Celebramos los logros. Se van con sonrisa y confianza.</div></div>
+    <div class="stp-wrap" id="stpWrap">
+      <div class="stp-line"><div class="stp-line-fill"></div></div>
+      <div class="stp-g">
+        <div class="stp-c"><div class="stp-time">5 min</div><div class="stp-circle">01</div><div class="stp-name">Bienvenida</div><div class="stp-d">Actividades dinámicas que despiertan la energía y preparan el cuerpo.</div></div>
+        <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">02</div><div class="stp-name">Habilidades</div><div class="stp-d">Coordinación, equilibrio y control del balón de forma lúdica.</div></div>
+        <div class="stp-c"><div class="stp-time">15 min</div><div class="stp-circle">03</div><div class="stp-name">Juegos de equipo</div><div class="stp-d">Actividades grupales que fomentan colaboración y respeto.</div></div>
+        <div class="stp-c"><div class="stp-time">10 min</div><div class="stp-circle">04</div><div class="stp-name">Partido</div><div class="stp-d">En Mighty y Mega, aplican todo en un partido real sin presión.</div></div>
+        <div class="stp-c"><div class="stp-time">5 min</div><div class="stp-circle">05</div><div class="stp-name">Reconocimiento</div><div class="stp-d">Celebramos los logros. Se van con sonrisa y confianza.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -627,9 +644,12 @@ if(phiImg){
   phiOb.observe(phiImg);
 }
 
-/* ═══ STEP NUMBER BOUNCE ═══ */
-const stpOb=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');stpOb.unobserve(e.target)}})},{threshold:.2});
-document.querySelectorAll('.stp-c').forEach(el=>stpOb.observe(el));
+/* ═══ STEPS TIMELINE REVEAL ═══ */
+const stpWrap=document.getElementById('stpWrap');
+if(stpWrap){
+  const stpOb=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');stpOb.unobserve(e.target)}})},{threshold:.2});
+  stpOb.observe(stpWrap);
+}
 
 /* ═══ COUNT-UP ANIMATION ═══ */
 function countUp(el,target,duration){
