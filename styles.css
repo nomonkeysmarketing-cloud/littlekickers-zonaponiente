@@ -84,7 +84,7 @@ nav.scrolled{padding:10px 48px;box-shadow:0 4px 20px rgba(0,0,0,.15);top:0}
 .n-logo-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;color:#fff;letter-spacing:-.3px;line-height:1.1}
 .n-logo-sub{font-size:10px;color:rgba(255,255,255,.7);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
 .n-links{display:flex;gap:28px;align-items:center}
-.n-link{font-size:13px;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;transition:color .3s;position:relative}
+.n-link{font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.92);text-decoration:none;transition:color .3s;position:relative;letter-spacing:.1px}
 .n-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#fff;border-radius:2px;transition:width .3s}
 .n-link:hover{color:#fff}
 .n-link:hover::after{width:100%}
