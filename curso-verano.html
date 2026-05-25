@@ -93,7 +93,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .cv-why{padding:96px 48px;background:#fff}
 .cv-why-in{max-width:1200px;margin:0 auto}
 .cv-why-h-wrap{text-align:center;margin-bottom:56px}
-.cv-why-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.cv-why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:900px){.cv-why-g{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cv-why-g{grid-template-columns:1fr}}
 .cv-why-c{padding:28px 24px;background:#fff;border:1.5px solid #F0EAE0;border-radius:20px;transition:all .35s}
 .cv-why-c:hover{transform:translateY(-6px);box-shadow:var(--sm);border-color:transparent}
 .cv-why-ic{font-size:32px;margin-bottom:14px;display:inline-block}
