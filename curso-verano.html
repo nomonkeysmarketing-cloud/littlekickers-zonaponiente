@@ -464,36 +464,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="cv-prc-w">1 semana</div>
         <div class="cv-prc-n"><span class="currency">$</span>2,500</div>
         <div class="cv-prc-mx">MXN</div>
-        <!-- TODO: reemplazar href="#" con el link de pago del cliente -->
-        <a href="#" class="cv-prc-btn" data-plan="1" target="_blank" rel="noopener">Pagar 1 semana →</a>
+        <a href="https://buy.stripe.com/14k3g6gAbemd6CQ004" class="cv-prc-btn" data-plan="1" data-price="2500" target="_blank" rel="noopener">Pagar 1 semana →</a>
       </div>
       <div class="cv-prc-c rv d1">
         <div class="cv-prc-w">2 semanas</div>
         <div class="cv-prc-n"><span class="currency">$</span>4,900</div>
         <div class="cv-prc-mx">MXN</div>
-        <!-- TODO: reemplazar href="#" con el link de pago del cliente -->
-        <a href="#" class="cv-prc-btn" data-plan="2" target="_blank" rel="noopener">Pagar 2 semanas →</a>
+        <a href="https://buy.stripe.com/cN217YbfRdi9e5i7sx" class="cv-prc-btn" data-plan="2" data-price="4900" target="_blank" rel="noopener">Pagar 2 semanas →</a>
       </div>
       <div class="cv-prc-c rv d2">
         <div class="cv-prc-w">3 semanas</div>
         <div class="cv-prc-n"><span class="currency">$</span>7,000</div>
         <div class="cv-prc-mx">MXN</div>
-        <!-- TODO: reemplazar href="#" con el link de pago del cliente -->
-        <a href="#" class="cv-prc-btn" data-plan="3" target="_blank" rel="noopener">Pagar 3 semanas →</a>
+        <a href="https://buy.stripe.com/6oE2c23Np3Hz7GU7sy" class="cv-prc-btn" data-plan="3" data-price="7000" target="_blank" rel="noopener">Pagar 3 semanas →</a>
       </div>
       <div class="cv-prc-c feat rv d3">
         <div class="cv-prc-w">4 semanas</div>
         <div class="cv-prc-n"><span class="currency">$</span>8,800</div>
         <div class="cv-prc-mx">MXN</div>
-        <!-- TODO: reemplazar href="#" con el link de pago del cliente -->
-        <a href="#" class="cv-prc-btn cv-prc-btn-feat" data-plan="4" target="_blank" rel="noopener">Pagar 4 semanas →</a>
+        <a href="https://buy.stripe.com/00gaIy1Fh6TL3qE3cj" class="cv-prc-btn cv-prc-btn-feat" data-plan="4" data-price="8800" target="_blank" rel="noopener">Pagar 4 semanas →</a>
       </div>
       <div class="cv-prc-c rv d4">
         <div class="cv-prc-w">5 semanas</div>
         <div class="cv-prc-n"><span class="currency">$</span>10,000</div>
         <div class="cv-prc-mx">MXN</div>
-        <!-- TODO: reemplazar href="#" con el link de pago del cliente -->
-        <a href="#" class="cv-prc-btn" data-plan="5" target="_blank" rel="noopener">Pagar 5 semanas →</a>
+        <a href="https://buy.stripe.com/3cs7wmdnZba14uI5ks" class="cv-prc-btn" data-plan="5" data-price="10000" target="_blank" rel="noopener">Pagar 5 semanas →</a>
       </div>
     </div>
 
@@ -674,6 +669,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     // GTM event
     if(window.dataLayer){window.dataLayer.push({event:'curso_verano_inscripcion',edad:edad,semanas:sem.value});}
     window.open(url,'_blank');
+  });
+})();
+
+// Track clics en botones de pago Stripe → GTM
+(function(){
+  document.querySelectorAll('.cv-prc-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var plan=btn.getAttribute('data-plan');
+      var price=btn.getAttribute('data-price');
+      if(window.dataLayer){
+        window.dataLayer.push({
+          event:'begin_checkout',
+          ecommerce:{
+            currency:'MXN',
+            value:Number(price),
+            items:[{
+              item_id:'curso-verano-'+plan+'sem',
+              item_name:'Curso de Verano '+plan+' semana(s)',
+              item_category:'Curso de Verano 2026',
+              price:Number(price),
+              quantity:1
+            }]
+          },
+          plan_semanas:plan
+        });
+      }
+    });
   });
 })();
 </script>
