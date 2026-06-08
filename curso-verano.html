@@ -146,8 +146,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .cv-info-li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:15px;color:var(--body);line-height:1.5}
 .cv-info-li::before{content:'✓';color:var(--lk-red);font-weight:900;font-size:16px;flex-shrink:0}
 
+/* Sede / Ubicación */
+.cv-loc{padding:96px 48px;background:var(--cream)}
+.cv-loc-in{max-width:1180px;margin:0 auto}
+.cv-loc-h-wrap{text-align:center;margin-bottom:48px}
+.cv-loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+.cv-loc-photo{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--sl);min-height:380px}
+.cv-loc-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.cv-loc-photo-tag{position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,.95);padding:10px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;color:var(--dark);display:flex;align-items:center;gap:8px;box-shadow:var(--ss)}
+.cv-loc-map{display:flex;flex-direction:column;gap:18px}
+.cv-loc-mapframe{flex:1;border-radius:24px;overflow:hidden;box-shadow:var(--sm);min-height:300px;border:none}
+.cv-loc-mapframe iframe{width:100%;height:100%;min-height:300px;border:0;display:block}
+.cv-loc-card{background:#fff;border-radius:20px;padding:24px 26px;box-shadow:var(--ss);display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.cv-loc-card-ic{width:52px;height:52px;flex-shrink:0;border-radius:14px;background:#FFF0F0;color:var(--lk-red);display:flex;align-items:center;justify-content:center;font-size:26px}
+.cv-loc-card-tx{flex:1;min-width:180px}
+.cv-loc-card-t{font-family:'Nunito',sans-serif;font-weight:800;font-size:17px;color:var(--dark);line-height:1.2;margin-bottom:4px}
+.cv-loc-card-s{font-size:14px;color:var(--body);line-height:1.4}
+.cv-loc-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;background:var(--lk-red);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;text-decoration:none;border-radius:100px;transition:all .25s;white-space:nowrap}
+.cv-loc-btn:hover{background:var(--lk-red-dark);transform:translateY(-2px);box-shadow:var(--sr)}
+@media (max-width:900px){.cv-loc-grid{grid-template-columns:1fr}.cv-loc-photo{min-height:280px}}
+
 /* Formulario */
-.cv-form-sec{padding:96px 48px;background:var(--cream)}
+.cv-form-sec{padding:96px 48px;background:#fff}
 .cv-form-in{max-width:780px;margin:0 auto}
 .cv-form-h-wrap{text-align:center;margin-bottom:40px}
 .cv-form{background:#fff;border-radius:24px;padding:40px;box-shadow:var(--sm)}
@@ -188,7 +208,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cv-vis-bd.b1{left:-8px}
   .cv-vis-bd.b2{right:-8px}
   .cv-info{grid-template-columns:1fr 1fr}
-  .cv-what,.cv-day,.cv-why,.cv-prc,.cv-info-sec,.cv-form-sec,.cv-fcta{padding:64px 24px}
+  .cv-what,.cv-day,.cv-why,.cv-prc,.cv-info-sec,.cv-loc,.cv-form-sec,.cv-fcta{padding:64px 24px}
   .cv-info-in{grid-template-columns:1fr}
   .cv-form{padding:28px 22px}
   .cv-form-g{grid-template-columns:1fr}
@@ -233,6 +253,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="#que-es" class="n-link">El curso</a>
     <a href="#dia" class="n-link">Un día típico</a>
     <a href="#precios" class="n-link">Precios</a>
+    <a href="#ubicacion" class="n-link">Ubicación</a>
     <a href="#formulario" class="n-link">Inscríbete</a>
   </div>
   <a href="https://wa.me/5215565245035?text=Hola%2C%20me%20interesa%20el%20Curso%20de%20Verano%20Little%20Kickers%202026.%20Mi%20hijo%20tiene%20___%20años." class="n-cta" target="_blank" rel="noopener">Inscribir ahora</a>
@@ -242,6 +263,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <a href="#que-es" data-action="menu">El curso</a>
   <a href="#dia" data-action="menu">Un día típico</a>
   <a href="#precios" data-action="menu">Precios</a>
+  <a href="#ubicacion" data-action="menu">Ubicación</a>
   <a href="#formulario" data-action="menu">Inscríbete</a>
   <a href="https://wa.me/5215565245035?text=Hola%2C%20me%20interesa%20el%20Curso%20de%20Verano%20Little%20Kickers%202026." target="_blank" rel="noopener" style="color:var(--lk-red)" data-action="menu">Inscribir ahora →</a>
 </div>
@@ -542,6 +564,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </section>
 
+<!-- ═══ SEDE / UBICACIÓN ═══ -->
+<section class="cv-loc" id="ubicacion">
+  <div class="cv-loc-in">
+    <div class="cv-loc-h-wrap">
+      <div class="cv-tag rv">¿Dónde es?</div>
+      <h2 class="cv-sec-h rv d1">Sede: Colegio Merici</h2>
+      <p class="cv-sec-d rv d2" style="margin-top:16px">Una cancha amplia, segura y con todo lo necesario para que los niños vivan el verano al máximo. En Santa Fe, fácil acceso desde toda la Zona Poniente.</p>
+    </div>
+
+    <div class="cv-loc-grid">
+      <div class="cv-loc-photo rv">
+        <img src="images/canca-merici.jpeg" alt="Cancha del Colegio Merici, sede del Curso de Verano Little Kickers" loading="lazy">
+        <div class="cv-loc-photo-tag">⚽ Nuestra cancha en el Colegio Merici</div>
+      </div>
+
+      <div class="cv-loc-map rv d1">
+        <div class="cv-loc-mapframe">
+          <iframe src="https://maps.google.com/maps?q=Colegio%20Merici,%20Santa%20Fe,%20CDMX&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Colegio Merici en Google Maps" allowfullscreen></iframe>
+        </div>
+        <div class="cv-loc-card">
+          <div class="cv-loc-card-ic">📍</div>
+          <div class="cv-loc-card-tx">
+            <div class="cv-loc-card-t">Colegio Merici</div>
+            <div class="cv-loc-card-s">Santa Fe, Cuajimalpa · CDMX</div>
+          </div>
+          <a href="https://www.google.com/maps/place/Colegio+Merici/@19.3832648,-99.2578857,17z/data=!3m1!4b1!4m6!3m5!1s0x85d2011f761e665d:0x805bfde3158527c1!8m2!3d19.3832598!4d-99.2553108!16s%2Fg%2F1ptwy5fjj?entry=ttu" class="cv-loc-btn" target="_blank" rel="noopener">Cómo llegar →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ FORMULARIO ═══ -->
 <section class="cv-form-sec" id="formulario">
   <div class="cv-form-in">
@@ -627,6 +681,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a href="#que-es" class="ft-lk">¿Qué es?</a>
       <a href="#dia" class="ft-lk">Un día típico</a>
       <a href="#precios" class="ft-lk">Precios</a>
+      <a href="#ubicacion" class="ft-lk">Ubicación</a>
       <a href="#formulario" class="ft-lk">Inscríbete</a>
     </div>
     <div>
